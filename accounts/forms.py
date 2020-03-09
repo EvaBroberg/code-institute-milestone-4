@@ -32,7 +32,7 @@ def clean_password(self):
     password2 = self.cleaned_data.get('password2')
     if not password1 or not password2:
         raise forms.ValidationError(u'Please confirm your password.')
-    if password1 !== password2:
+    if password1 != password2:
         raise forms.ValidationError(u'Passwords must match.')
     return password2
 
