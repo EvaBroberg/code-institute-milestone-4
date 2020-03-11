@@ -42,7 +42,6 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
 
 
-
 def register(request):
     """Return registration page"""
     if request.user.is_authenticated:
