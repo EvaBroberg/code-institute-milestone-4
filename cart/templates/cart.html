@@ -34,7 +34,7 @@
 <div class="row">
     <p>Total amount</p>
     <p><£ {{ total }}</p>
-    <a href="/" class="btn btn-success" role="button">Checkout</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
 </div>
 
 {% endblock %}
