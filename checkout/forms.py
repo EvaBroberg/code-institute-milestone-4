@@ -12,8 +12,8 @@ class PaymentForm(forms.Form):
     expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
     
-class OrderForm(forms.Form):
+class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('first_name','last_name','phone_number','country', 'county', 'postcode', 'city', 'address1', 'address2', 'date')
+        fields = ('first_name','last_name','phone_number','country', 'county', 'postcode', 'city', 'address1', 'address2')
     

@@ -5,13 +5,14 @@ from products.models import Product
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50, blank=False)
+    last_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=True)
     postcode = models.CharField(max_length=20, blank=True)
     city = models.CharField(max_length=40, blank=False)
     address1 = models.CharField(max_length=50, blank=False)
-    address1 = models.CharField(max_length=50, blank=True)
+    address2 = models.CharField(max_length=50, blank=True)
     date = models.DateField()
     
     def __str__(self):
