@@ -66,6 +66,8 @@ def register(request):
     return render(request, 'register.html', {'registration_form': registration_form}) 
 
 
+
+
 @login_required
 def profile(request):
     """User profile page"""

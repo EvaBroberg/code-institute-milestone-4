@@ -154,3 +154,5 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+LOGIN_REDIRECT_URL = '/'
+
