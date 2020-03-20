@@ -5,7 +5,7 @@ from products.models import Product
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50, blank=False)
-    last_name = models.CharField(max_length=50, blank=False)
+    last_name = models.CharField(max_length=50, blank=False, default='')
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=True)
