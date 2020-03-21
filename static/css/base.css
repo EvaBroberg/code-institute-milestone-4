@@ -7,28 +7,15 @@
 body {
   box-sizing: border-box;
   background-color: #fae0d8;
-  height: 500px;
 }
 
 a {
   text-decoration: none;
 }
 
-.logo {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  text-align: center;
-  margin-left: -35px;
-  font-size: 2em;
-}
-
 li {
+    list-style: none;
     display: inline-block;
-    margin: 40px 30px;
     }
 
 

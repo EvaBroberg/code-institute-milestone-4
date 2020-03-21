@@ -7,15 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page_title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static '../blog/static/css/blog.css' %}">
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg">
         <a href="#" class="logo">LOGO</a>
-        <ul>
+        <ul class="navbar-nav">
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li>
+                <div class="display">
+                    <form action="{% url 'search' %}" method="GET">
+                        <input type="text" name="q">
+                        <button type="submit">Search</button>
+                    </form><link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+                </div>
+            </li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
@@ -31,18 +46,20 @@
                     {% endif %}
                 </a>
             </li>
-            <li><a href="#">Blog</a></li>
         </ul>
     </nav>
     
-    <div class="display">
-        <form action="{% url 'search' %}" method="GET">
-            <input type="text" name="q">
-            <button type="submit">Search</button>
-        </form><link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    </div>
+    
     {% block content %}{% endblock %}
     <script src="https://kit.fontawesome.com/d7c13503ab.js" crossorigin="anonymous"></script>
+    <footer>
+        <li><a href="https://github.com/EvaBroberg/code-institute-milestone-4">Github</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <h3>Contact us</h3>
+        <p>+4495200746109</p>
+        <p>56D Sports Str</br>DL13 8TL</br>London UK</p>
+    </footer>
 </body>
 </html>
 
