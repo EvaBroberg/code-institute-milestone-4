@@ -45,6 +45,11 @@ class DraftListView(LoginRequiredMixin,ListView):
     
     
 ####################### HANDLING COMMENTS #########################################################
+
+@login_required
+def post_publish(request,pk):
+    post = get_object_or_404(Post,pk=pk)
+    post.published_datereturn redirect('post_detail',pk=pk)
     
 @login_required
 def add_comment_to_post(request,pk):
