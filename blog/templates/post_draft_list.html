@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %}Post{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+    <div class="post">
+        <p class="date">Created: {{ post.created_date|date:'D-M-Y' }} </p>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text }}</p>
+    </div>
+{% endfor %}
+
+{% endlock %}
