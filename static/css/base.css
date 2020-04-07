@@ -1,5 +1,9 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .primary-overlay {
-  background: rgba(54, 51, 59, 0.5);
+  background: rgba(57, 71, 77, 0.7);
   position: absolute;
   top: 0;
   left: 0;
@@ -16,4 +20,53 @@
   min-height: 600px;
   color: #fff;
   position: relative;
+}
+
+.main-header .showcase {
+  padding-top: 50px;
+}
+
+.scroll-icon {
+  position: absolute;
+  bottom: 5%;
+  left: 47%;
+  opacity: 0.5;
+}
+
+.main-text h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 7rem !important;
+  max-width: 60%;
+}
+
+.main-text p {
+  max-width: 60%;
+}
+
+.main-text {
+  display: none;
+}
+
+.box {
+  padding: 40px 10px !important;
+}
+
+.box h4 {
+  padding-bottom: 30px;
+}
+
+.section-boxes .row {
+  margin-bottom: 0 !important;
+}
+
+.section-contact {
+  position: relative;
+  /* in case the map doesn't show up */
+  min-height: 480px;
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    height: 50vh;
+  }
 }
