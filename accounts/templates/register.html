@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 
-{% load bootstrap_tags %}
-
 {% block page_title %}Register{% endblock %}
 
 {% block content %}
     <form enctype="multipart/form-data" method="POST" >
         {% csrf_token %}
-        {{ registration_form|as_bootstrap }}
+        {{ registration_form }}
         <button type="submit">register</button>
     </form>
     <p>If you already have an account, <a href="{% url 'login' %}">login here</a>.</p>

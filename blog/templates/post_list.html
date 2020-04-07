@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load bootstrap_tags %}
+
 
 {% block page_title %}Posts{% endblock %}
 
@@ -17,6 +17,20 @@
     <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
     {% endfor %}
 </div>
-
+<div>
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'post_new' %}">New Post</a>
+        </li>
+        <li>
+            <a href="{% url 'post_draft_list' %}">Drafts</a>
+        </li>
+        <li>
+            <a Welcone: {{user.username}}></a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
 
 {% endblock %}
