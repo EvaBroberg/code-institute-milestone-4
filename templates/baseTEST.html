@@ -12,137 +12,19 @@
      <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>uGOgirl</title>
-    <!-- <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
-      type="text/css"
-      media="screen"
-      charset="utf-8"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" href="{% static '../blog/static/css/blog.css' %}" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <title>{% block page_title %}{% endblock %}</title>
 
-    {% block head_js %} {% endblock head_js %} -->
+    {% block head_js %} {% endblock head_js %}
   </head>
-  <body id="home" class="scrollspy">
-    <header class="main-header">
-      <div class="primary-overlay">
-        <div class="navbar-fixed">
-          <nav class="transparent z-depth-0">
-            <div class="container">
-              <div class="nav-wrapper">
-                <a href="#home" class="brand-logo">uGOgirl</a>
-                <a href="#" data-activates="mobile-nav" class="button-collapse">
-                  <i class="material-icons">menu</i>
-                </a>
-                <div class="nav-content">
-                  <ul class="right tabs tabs-transparent hide-on-med-and-down">
-                    <li class="tab right">
-                      <a href="#home">Home</a>
-                    </li>
-                    <li class="tab right">
-                      <a href="#about">About</a>
-                    </li>
-                    <li class="tab right">
-                      <a href="#contact">Contact</a>
-                    </li>
-                    <li class="tab right">
-                      <a href="#shop">Shop</a>
-                    </li>
-                    <li class="tab right">
-                      <a href="#community">Community</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-        <!-- Side nav -->
-        <ul class="side-nav black" id="mobile-nav">
-          <h4 class="center">uGOgirl</h4>
-          <li>
-            <a class="divider"></a>
-          </li>
-          <li>
-            <a class="white-text" href="#home">Home</a>
-          </li>
-          <li>
-            <a class="white-text" href="#about">About</a>
-          </li>
-
-          <li>
-            <a class="white-text" href="#contact">Contact</a>
-          </li>
-          <li>
-            <a class="white-text" href="#shop">Shop</a>
-          </li>
-          <li>
-            <a class="white-text" href="#community">Community</a>
-          </li>
-        </ul>
-
-     <!--Import jQuery before materialize.js-->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-     <script type="text/javascript" src="js/materialize.min.js"></script>
- 
-     <script>
-       $(document).ready(function () {
-         // Init Sidenav
-         $('.button-collapse').sideNav();
-         p;
- 
-         // Init Scrollspy
-         $('.scrollspy').scrollSpy();
- 
-         // ScrollFire
-         const options = [
-           {
-             selector: '.main-text',
-             offset: 0,
-             callback: function (el) {
-               Materialize.fadeInImage($(el));
-             },
-           },
-           {
-             selector: '.navbar-fixed',
-             offset: 1500,
-             callback: function () {
-               $('nav').removeClass('transparent');
-               $('nav').addClass('blue-grey darken-3');
-             },
-           },
-         ];
- 
-         Materialize.scrollFire(options);
-       });
-     </script>
-  </body>
-</html>
-
-<!-- <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg">
         <a href="{% url 'index' %}" class="logo">LOGO</a>
         <ul class="navbar-nav">
             <li><a href="{% url 'post_list' %}">Blog</a></li>
             <li><a href="#">About</a></li>
         </ul>
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-            </a>
-            
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
+        
         <ul class="navbar-nav ml-auto">
             <li>
                 
@@ -171,18 +53,12 @@
         </ul>
     </nav>
 
-    <div class="main-content">
-        <img src="/static/img/baseimg.jpg" alt="woman weight lifting">
-    </div>
+  
     
     
     {% block content %}{% endblock %}
-    <script src="https://kit.fontawesome.com/d7c13503ab.js" crossorigin="anonymous"></script>
-    <footer>
-        <li><a href="https://github.com/EvaBroberg/code-institute-milestone-4">Github</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <h3>Contact us</h3>
-        <p>+4495200746109</p>
-        <p>56D Sports Str</br>DL13 8TL</br>London UK</p>
-    </footer> -->
+    
+  </body>
+</html>
+
+
