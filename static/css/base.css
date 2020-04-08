@@ -2,6 +2,28 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.main-logo {
+  padding-top: 20px;
+  width: 50px;
+  height: auto;
+}
+
+.logo-text {
+  position: absolute;
+  top: 20px;
+  font-size: 2.2rem;
+  font-family: 'Trade Winds', cursive;
+}
+
+nav {
+  height: 117px;
+}
+
+nav ul a {
+  font-size: 1.1rem;
+  padding-top: 25px;
+}
+
 .primary-overlay {
   background: rgba(57, 71, 77, 0.7);
   position: absolute;
@@ -35,7 +57,7 @@
 
 .main-text h1 {
   font-family: 'Heebo', sans-serif;
-  font-size: 7rem !important;
+  font-size: 6.6rem !important;
   max-width: 60%;
 }
 
