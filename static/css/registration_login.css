@@ -1,0 +1,12 @@
+.tabs .indicator {
+  background: #6a1b9a !important;
+}
+
+.section-signup .dropdown-content li > span {
+  color: #9c27b0;
+}
+
+.btn-extend {
+  display: block;
+  width: 100%;
+}

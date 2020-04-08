@@ -42,6 +42,9 @@
 .main-text p {
   max-width: 60%;
 }
+.character-counter {
+  display: none !important;
+}
 
 .main-text {
   display: none;
