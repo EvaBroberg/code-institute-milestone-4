@@ -15,6 +15,68 @@
   font-family: 'Trade Winds', cursive;
 }
 
+#about {
+  padding-top: 100px !important;
+}
+
+.about-text {
+  text-align: justify;
+  margin-top: 450px;
+  font-size: 1.3rem;
+  letter-spacing: 0.4px;
+}
+
+.left-btn {
+  margin-top: 30px;
+  border-radius: 17px 0px 0px 17px;
+  background-color: #00838f;
+  font-weight: bold;
+}
+
+.right-btn {
+  margin-top: 30px;
+  border-radius: 0px 17px 17px 0px;
+  background-color: #006064;
+  font-weight: bold;
+}
+
+.plan-card h3 {
+  font-weight: bold;
+  color: #455a64;
+}
+
+.plan-card h5 {
+  color: #546e7a;
+}
+
+.choose-plan-title {
+  font-family: 'Heebo', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.1rem;
+}
+
+.about-title {
+  position: absolute;
+  width: 50%;
+  top: 1364px;
+  font-size: 6.5rem;
+  font-family: 'Heebo', sans-serif;
+}
+
+.slider-title {
+  color: #cfd8dc;
+  font-family: 'Heebo', sans-serif;
+  max-width: 50%;
+  font-size: 7rem;
+  left: 50px;
+  z-index: 9;
+  position: absolute;
+}
+
+.slider-image {
+  filter: brightness(0.5);
+}
+
 nav {
   height: 117px;
 }
