@@ -1,42 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-    <link type="text/css" href="css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/registration_login.css' %}" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link type="text/css" href="css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/registration_login.css' %}">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-  <body id="home" class="scrollspy">
-    <div class="navbar-fixed red">
+<body id="home" class="scrollspy">
+    <div class="navbar-fixed">
       <nav class="transparent z-depth-0">
         <div class="container">
           <div class="nav-wrapper">
-            <a href="{% url 'index' %}" class="brand-logo">uGOgirl</a>
+            <a href="#home" class="brand-logo"><img class="main-logo" src="/static/img/logo.png" alt=""> <span class="logo-text">uGOgirl</span></a>
             <a href="#!" data-target="mobile-nav" class="sidenav-trigger">
               <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
               <li>
-                <a href="{% url 'post_list' %}">Community</a>
+                <a href="{% url 'products' %}">Shop</a>
               </li>
               <li>
                 <a href="#about">About</a>
               </li>
               <li>
-                <a href="#testimonial">Testimonial</a>
-              </li>
-              <li>
                 <a href="#contact">Contact</a>
               </li>
               {% if user.is_authenticated %}
-              <li><a href="{% url 'logout' %}">Logout</a></li>
+              <li href="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
               <li><a href="{% url 'profile' %}">Profile</a></li>
               {% else %}
               <li><a href="{% url 'login' %}">Login</a></li>
@@ -47,89 +47,110 @@
         </div>
       </nav>
     </div>
+
+
+
+
+    <!-- Sidenav -->
     <ul class="sidenav" id="mobile-nav">
       <h4 class="blue-grey-text darken-3 center">uGOgirl</h4>
       <li>
-        <a href="{% url 'post_list' %}">Community</a>
+        <div class="divider"></div>
+      </li>
+      <li>
+        <a href="{% url 'products' %}">Shop</a>
       </li>
       <li>
         <a href="#about">About</a>
       </li>
       <li>
-        <a href="#testimonial">Testimonial</a>
-      </li>
-      <li>
         <a href="#contact">Contact</a>
       </li>
       {% if user.is_authenticated %}
-      <li><a href="{% url 'logout' %}">Logout</a></li>
+      <lhref="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
       <li><a href="{% url 'profile' %}">Profile</a></li>
       {% else %}
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'register' %}">Register</a></li>
       {% endif %}
     </ul>
-
-    {% block content %}{% endblock %}
-
-    <!-- Footer -->
-    <footer class="page-footer blue-grey darken-1">
+ 
+  
+  {% block content %}
+  {% endblock %}
+  
+  
+  <!-- Footer -->
+  <footer class="page-footer blue-grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l3 s12">
+          <h5>Location</h5>
+          <p>uGOgirl, LTD</p>
+          <p>123 Some Rd, London UK</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#home">Home</a>
+            </li>
+            <li>
+              <a class="white-text" href="#about">About</a>
+            </li>
+            <li>
+              <a class="white-text" href="#plans">Plans</a>
+            </li>
+            <li>
+              <a class="white-text" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright blue-grey">
       <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5>Location</h5>
-            <p>uGOgirl, LTD</p>
-            <p>123 Some Rd, London UK</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li>
-                <a class="white-text" href="#home">Home</a>
-              </li>
-              <li>
-                <a class="white-text" href="#about">About</a>
-              </li>
-              <li>
-                <a class="white-text" href="#testimonial">Testimonial</a>
-              </li>
-              <li>
-                <a class="white-text" href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        uGOgirl © <span id="year"></span>
+        <a class="grey-text text-lighten-4 right" href="#!"> <i class="material-icons left">keyboard_arrow_up</i> Back to Top </a>
       </div>
-      <div class="footer-copyright blue-grey darken-4">
-        <div class="container">
-          uGOgirl © <span id="year"></span>
-          <a class="grey-text text-lighten-4 right" href="#!"> <i class="material-icons left">keyboard_arrow_up</i> Back to Top </a>
-        </div>
-      </div>
-    </footer>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
-    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
-    <script>
-      $(document).ready(function () {
-        $('.sidenav').sidenav();
-
-        $('.scrollspy').scrollSpy();
-
-        $('.main-text').fadeIn(1500).removeClass('hidden');
-
-        $(window).scroll(function () {
-          if (window.pageYOffset > 1000 - $(window).height()) {
-            $('nav').removeClass('transparent').addClass('blue-grey darken-3 z-depth-4');
-          } else {
-            $('nav').addClass('transparent').removeClass('blue-grey darken-3 z-depth-4');
-          }
-        });
-
-        document.getElementById('year').innerHTML = new Date().getFullYear();
+    </div>
+  </footer>
+  
+  
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  
+  <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      
+      $('.scrollspy').scrollSpy();
+      
+      var modalElems = document.querySelectorAll('.modal');
+      var modalInstances = M.Modal.init(modalElems, {
       });
-    </script>
-  </body>
+      
+      $('.main-text').fadeIn(1500).removeClass('hidden');
+      
+      $('.slider').slider({
+        indicators: false,
+        height: 700,
+        transition: 500,
+        interval: 6000
+      });
+      
+      $(window).scroll(function () {
+        if (window.pageYOffset > 1000 - $(window).height()) {
+          $('nav').removeClass('transparent z-depth-0').addClass('blue-grey darken-3 z-depth-4');
+        } else {
+          $('nav').addClass('transparent z-depth-0').removeClass('blue-grey darken-3 z-depth-4');
+        }
+      });
+      
+      document.getElementById('year').innerHTML = new Date().getFullYear();
+    });
+  </script>
+</body>
 </html>
