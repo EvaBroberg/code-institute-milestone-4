@@ -2,11 +2,41 @@
   background: #6a1b9a !important;
 }
 
+.form-wrapper {
+  padding-top: 100px;
+}
+
+.section-signup {
+  padding-top: 100px;
+}
+
 .section-signup .dropdown-content li > span {
   color: #9c27b0;
+}
+
+.section-signup {
+  background: url(../img/img9.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  min-height: 600px;
+  color: #fff;
+  position: relative;
 }
 
 .btn-extend {
   display: block;
   width: 100%;
+}
+
+span.helptext {
+  display: none !important;
+}
+
+label {
+  font-size: 1rem;
+}
+
+.input-field {
+  padding: 5px 20px 5px 20px;
 }

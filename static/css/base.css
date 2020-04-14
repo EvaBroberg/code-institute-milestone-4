@@ -2,6 +2,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+span.character-counter {
+  display: none;
+}
+
 .card-panel {
   border-radius: 0px !important;
 }
@@ -146,9 +150,6 @@ nav ul a {
 
 .main-text p {
   max-width: 60%;
-}
-.character-counter {
-  display: none !important;
 }
 
 .main-text {

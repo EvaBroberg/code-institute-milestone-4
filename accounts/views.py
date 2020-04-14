@@ -5,12 +5,26 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import LoginForm, RegistrationForm
+from accounts.forms import LoginForm, RegistrationForm, ContactForm
 
 
 def index(request):
     """Return index page"""
     return render(request, 'index.html')
+
+
+
+def index(request):
+  contact_form = ContactForm(request.POST or None) #here you tell django what form you are talking about
+  if contact_form.is_valid(): 
+    contact_form.save()
+    #messages.success(request, 'form was posted') #this is optional but good for the user
+  context = {
+    'contact_form': contact_form,   #here you are passing the variable "form" to the template so you can use it like "{{form.as_p}}"
+    
+    #other context variables
+    }
+  return render(request, "index.html", context)
 
 
 

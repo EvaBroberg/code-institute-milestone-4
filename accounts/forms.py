@@ -4,6 +4,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
 
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+    
+
 class LoginForm(forms.Form):
     """User login form"""
     username = forms.CharField()
@@ -14,6 +20,7 @@ class RegistrationForm(UserCreationForm):
     """User registration form"""
     password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password',widget=forms.PasswordInput)
+    
     
     class Meta:
         model = User
