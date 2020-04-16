@@ -212,7 +212,7 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section section-contact center blue-grey darken-4 scrollspy">
+<section id="contact" class="section section-contact blue-grey darken-4 scrollspy">
   <div>
     <div class="container">
       <div class="row">
@@ -220,13 +220,12 @@
           HAVE QUESTIONS? GET IN TOUCH!
         </div>
         <div class="col s12 m6">
-          <div class="contact-form card-panel blue-grey lighten-5 z-depth-5">
-            <form method="POST">
-              {% csrf_token %} {{ contact_form }}
-              <button type="submit">Login</button>
-            </form>
-          </div>
-          <input type="submit" value="Send  Message" class="btn blue-grey send-message-btn" />
+          <form enctype="multipart/form-data" method="POST">
+            <div class="contact-form card-panel blue-grey lighten-5 z-depth-5">
+              {% csrf_token %} {{ contact_form}}
+            </div>
+            <input type="submit" value="Send  Message" class="btn blue-grey send-message-btn" />
+          </form>
         </div>
       </div>
     </div>

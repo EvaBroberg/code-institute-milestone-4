@@ -9,22 +9,19 @@ from accounts.forms import LoginForm, RegistrationForm, ContactForm
 
 
 def index(request):
-    """Return index page"""
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        
+        if contact_form.is_valid():
+            contact_form.save()
+            
+            # messages.success(request, 'form was posted')
+                  
+    else:
+        contact_form = ContactForm()
+    return render(request, 'index.html',{'contact_form':contact_form}) 
 
 
-
-def index(request):
-  contact_form = ContactForm(request.POST or None) #here you tell django what form you are talking about
-  if contact_form.is_valid(): 
-    contact_form.save()
-    #messages.success(request, 'form was posted') #this is optional but good for the user
-  context = {
-    'contact_form': contact_form,   #here you are passing the variable "form" to the template so you can use it like "{{form.as_p}}"
-    
-    #other context variables
-    }
-  return render(request, "index.html", context)
 
 
 

@@ -97,6 +97,14 @@ span.character-counter {
   margin-bottom: 0 !important;
 }
 
+textarea#id_message {
+  height: 100px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  resize: none;
+}
+
 nav {
   height: 117px;
 }
