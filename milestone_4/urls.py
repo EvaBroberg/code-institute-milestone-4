@@ -22,7 +22,7 @@ from cart import urls as urls_cart
 from search import urls as urls_search
 from blog import urls as urls_blog
 from checkout import urls as urls_checkout
-from products.views import all_products
+from products.views import product_list_view
 from django.views import static
 from .settings import MEDIA_ROOT
 
