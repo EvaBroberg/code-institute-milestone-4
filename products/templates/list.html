@@ -1,7 +1,35 @@
-{% for product in products %}
+{% extends 'base.html' %} {% block content %}
 
-<a href="{{product.get_absolute_url}}">{{ product.name }} </a>
+<section id="equipment" class="section section-plans scrollspy box">
+  <div class="container">
+    <div class="row">
+      {% for product in products %}
 
-<br />
+      <div class="col s12 m4 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{MEDIA_URL}}{{ product.image }}" / >
+            <span class="card-title"><a href="{{product.get_absolute_url}}">{{ product.name }} </a></span>
+          </div>
+          <div class="card-content">
+            <p class="product-description">{{ product.description }}</p>
+            <p>£ {{ product.price }}</p>
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+              {% csrf_token %}
+              <div class="input-group">
+                <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity" />
+                <span class="input-group-btn">
+                  <button type="submit" class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-{% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

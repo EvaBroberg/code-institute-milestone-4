@@ -28,7 +28,7 @@
               <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
-              <li>
+              <li {% if request.resolver_match.url_name == 'products' %}class="active"{% endif %}>
                 <a href="{% url 'products' %}">Shop</a>
               </li>
               <li>
@@ -39,11 +39,14 @@
               </li>
               {% if user.is_authenticated %}
               <li href="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
-              <li><a href="{% url 'profile' %}">Profile</a></li>
+              <li {% if request.resolver_match.url_name == 'profile' %}class="active"{% endif %}><a href="{% url 'profile' %}">Profile</a></li>
               {% else %}
-              <li><a href="{% url 'login' %}">Login</a></li>
-              <li><a href="{% url 'register' %}">Register</a></li>
+              <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><a href="{% url 'login' %}">Login</a></li>
+              <li {% if request.resolver_match.url_name == 'register' %}class="active"{% endif %}><a href="{% url 'register' %}">Register</a></li>
               {% endif %}
+              <li>
+                <a href="{% url 'view_cart' %}"><i class="material-icons white-text">shopping_cart</i></a>
+              </li>
             </ul>
           </div>
         </div>

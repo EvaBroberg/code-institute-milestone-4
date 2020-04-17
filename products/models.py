@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Product(models.Model):
@@ -8,7 +9,8 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images')
     
     def get_absolute_url(self):
-        return "/products/{pk}/".format(pk = self.pk)
+        return reverse("product_detail", kwargs={'pk':self.pk})
+    
     
     def __str__(self):
-        return self.name
+        return self.name 
