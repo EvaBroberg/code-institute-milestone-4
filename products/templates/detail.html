@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / > <br />
 {{product.name}} <br />
-{{product.description}} <br />
+{{product.description|linebreaks}} <br />
 {{product.price}} <br />
 
 {% endblock %}
