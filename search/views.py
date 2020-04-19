@@ -9,7 +9,7 @@ def search(request):
         Q(name__icontains=request.GET['q']) |
         Q(description__icontains=request.GET['q']) |
         Q(tag__title__icontains=request.GET['q'])
-    )
+    ).distinct()
     return render(request, "list.html", {"products":products})
 
 

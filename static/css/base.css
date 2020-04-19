@@ -114,6 +114,14 @@ nav ul a {
   padding-top: 25px;
 }
 
+span.badge.white-text {
+  position: relative !important;
+  top: 28px !important;
+  right: 48px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .navbar-fixed {
   position: fixed;
 }

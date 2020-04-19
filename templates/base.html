@@ -12,8 +12,9 @@
   <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registration_login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
   <link rel="stylesheet" href="{% static 'css/shop.css' %}" />
-  
+ 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -45,8 +46,15 @@
               <li {% if request.resolver_match.url_name == 'register' %}class="active"{% endif %}><a href="{% url 'register' %}">Register</a></li>
               {% endif %}
               <li>
-                <a href="{% url 'view_cart' %}"><i class="material-icons white-text">shopping_cart</i></a>
+                <a href="{% url 'view_cart' %}">
+                  
+                  <i class="material-icons white-text">shopping_cart</i>
+                 
+                </a>
               </li>
+              <li>{% if product_count > 0 %}
+                <span class="badge white-text">{{ product_count }}</span>
+                {% endif %}</li>
             </ul>
           </div>
         </div>

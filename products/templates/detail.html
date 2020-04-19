@@ -1,6 +1,22 @@
-{% extends 'base.html' %} {% block content %} <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / > <br />
-{{product.name}} <br />
-{{product.description|linebreaks}} <br />
-{{product.price}} <br />
+{% extends 'base.html' %} {% block content %}
+
+<div class="product-row row">
+  <div class="col s12 l3">
+    <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / >
+  </div>
+  <div class="col s12 l6">
+    <h5>{{product.name}}</h5>
+    <p class="flow-text">{{product.description|linebreaks}}</p>
+  </div>
+  <div class="col s12 l3">
+    <p class="flow-text">£{{product.price}}</p>
+
+    <!-- FREE delivery. -->
+    <!-- In stock. -->
+    <!-- Quantity -->
+    <!-- Add to basket -->
+    <!-- Checkout -->
+  </div>
+</div>
 
 {% endblock %}

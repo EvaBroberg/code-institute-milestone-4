@@ -22,7 +22,7 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, on_delete = models.CASCADE)
     product = models.ForeignKey(Product, null=False, on_delete = models.CASCADE)
-    quantity = models.IntegerField(default=1)
+    quantity = models.IntegerField()
     
     def __str__(self):
         return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
