@@ -1,22 +1,39 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="product-row row">
-  <div class="col s12 l3">
-    <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / >
+<section class="section section-product-detail blue-grey darken-4">
+  <div class="container">
+    <div class="product-row row">
+      <div class="product-img-container col s12 l3">
+        <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / >
+      </div>
+      <div class="description-col col s12 l6">
+        <h6 class="flow-text white-text">{{product.name}}</h6>
+        <p class="white-text">
+          <span class="grey-text">Price:</span>
+          <span style="font-size: 1.2rem; color: #607d8b; font-weight: bold; letter-spacing: 1.5px;">£ {{product.price}}</span> & FREE Delivery
+        </p>
+        <p>{{product.description|linebreaks}}</p>
+      </div>
+      <div class="add-to-cart-col col s12 l3">
+        <h6>£ {{product.price}}</h6>
+        <p class="white-text">FREE delivery.</p>
+        <p class="white-text">In stock.</p>
+        <form method="post" action="{% url 'add_to_cart' product.id %}">
+          {% csrf_token %}
+          <div class="input-group">
+            <div class="quantity-group valign-wrapper white-text">
+              <p>Quantity</p>
+              <input name="quantity" type="number" min="1" max="999" class="form-control quantity-form" value="1" />
+            </div>
+            <button class="add-to-cart-button btn blue-grey waves-effect waves-light" type="submit" name="action">
+              Add to Cart
+              <i class="material-icons left">add_circle</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="col s12 l6">
-    <h5>{{product.name}}</h5>
-    <p class="flow-text">{{product.description|linebreaks}}</p>
-  </div>
-  <div class="col s12 l3">
-    <p class="flow-text">£{{product.price}}</p>
-
-    <!-- FREE delivery. -->
-    <!-- In stock. -->
-    <!-- Quantity -->
-    <!-- Add to basket -->
-    <!-- Checkout -->
-  </div>
-</div>
+</section>
 
 {% endblock %}
