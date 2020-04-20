@@ -31,6 +31,8 @@ def adjust_cart(request, id):
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
+    
+
 
 
 

@@ -1,0 +1,112 @@
+.desktop-line {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+}
+
+.desktop-line p {
+  margin: 0;
+  padding: 0;
+  line-height: 10px;
+}
+
+.qty-container {
+  display: flex;
+  width: 38%;
+  background: #37474f;
+}
+
+#select-qty {
+  border: none;
+  margin: 0;
+  margin-top: 1px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.qty-container p {
+  margin: 11px 10px 0px 10px;
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+}
+
+.qty-container i {
+  font-size: 1.5rem;
+  line-height: 2px;
+  cursor: pointer;
+}
+
+.quantity-up {
+  padding-top: 7px;
+}
+
+.quantity-none {
+  cursor: pointer;
+  border: none;
+}
+
+.quantity-none:hover {
+  background: #cfd8dc;
+}
+
+.quantity {
+  position: relative;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.quantity input {
+  float: left;
+}
+
+.quantity input:focus {
+  outline: 0;
+}
+
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 42px;
+}
+
+.quantity-button {
+  cursor: pointer;
+  transform: translateX(-100%);
+}
+
+.quantity-button {
+  position: absolute;
+}
+
+.quantity-button.quantity-down {
+  bottom: -1px;
+  height: 55%;
+}
+
+button#delete-product {
+  border: none;
+  cursor: pointer;
+}
+
+.item-price {
+  text-align: right;
+}
+
+.item-price p {
+  font-size: 1.2rem;
+}
+
+.product-name {
+  margin: 0 0 30px 0;
+  line-height: 1.9rem;
+}

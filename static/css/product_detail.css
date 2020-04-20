@@ -18,11 +18,6 @@ input.quantity-form {
   margin-left: 12px !important;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  opacity: 1;
-}
-
 .add-to-cart-col h6 {
   color: #607d8b;
   font-weight: bold;

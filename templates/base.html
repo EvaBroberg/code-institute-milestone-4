@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registration_login.css' %}">
   <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
   <link rel="stylesheet" href="{% static 'css/shop.css' %}" />
  
   
@@ -164,6 +165,11 @@
       
       document.getElementById('year').innerHTML = new Date().getFullYear();
     });
+
+
+   
   </script>
+  <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>
