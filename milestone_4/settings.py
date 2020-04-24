@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'blog',
     'tags',
     'materializeform',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'milestone_4.urls'
+
 
 TEMPLATES = [
     {
@@ -79,6 +80,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'milestone_4.wsgi.application'
 

@@ -1,5 +1,6 @@
 from django.conf.urls import url, include
 from accounts.views import index, logout, login, register, profile
+from django.contrib.auth import views
 from accounts import url_reset
 
 urlpatterns = [

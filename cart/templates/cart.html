@@ -8,16 +8,18 @@
 <section class="section section-cart blue-grey darken-4">
     <div class="container" style="padding-top: 150px;">
         <div class="desktop-line row hide-on-small-only" >
-            <div class="col m8" style="margin-bottom: 10px;">
+            <div class="col m8" style="margin-bottom: 10px; padding-left: 0;">
                 <p class="flow-text white-text">Shopping Cart</p>
             </div>
             <div class="col m4" style="text-align:right;">
                 <p class="white-text" style="font-size: 1.1rem;">Price</p>
             </div>
         </div>
-        <hr style="margin-bottom: 20px;">
-        <div class="row">
+        <hr style="margin-bottom:30px;">
+        
+        <!-- <div class="row"> -->
             {% for item in cart_items %}
+            <div class="row">
             <div class="col s12 l3 product-img-container">
                 <img src="{{MEDIA_URL}}{{ item.product.image }}" class="responsive-img" / >
             </div>
@@ -42,16 +44,13 @@
                     </div>
                 </form>
             </div>
-            <div class="item-price col s12 l2">
+            <div class="item-price col s12 l4">
                 <p>£ {{ item.product.price }}</p>
             </div>
-            {% endfor %}
-            <div class="col s12 l2">
-                <p>Subtotal:</p>
-            <p>£ {{ total }}</p>
-            <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-            </div>
         </div>
+            {% endfor %}
+            
+        <!-- </div> -->
         <div class="row">
             <div class="col s12">
                 <p>Subtotal:</p>
@@ -60,7 +59,7 @@
             </div>
             
         </div>
-        <hr>
+        
     </div>
 </section>
 {% endblock %}

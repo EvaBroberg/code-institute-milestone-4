@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div style="padding-top: 100px;" class="grey"></div>
+<h1>About community</h1>
+
+<p class="black-text">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae numquam repellat omnis, labore laudantium vitae nobis voluptates, saepe illo
+  cupiditate blanditiis debitis illum iusto, obcaecati vero odio! Fuga asperiores voluptates similique consequatur sunt expedita, est rerum nihil
+  impedit assumenda, corporis eum doloribus, quas autem distinctio omnis! Mollitia dicta deserunt odit, sequi perferendis et! Atque quo molestias
+  pariatur assumenda praesentium autem.
+</p>
+
+{% for post in post_list %}
+<div>
+  <h1><a href="{% url 'post_detail' pk=post_pk %}">{{ post.title }}</a></h1>
+</div>
+{% endfor %} {% endblock %}

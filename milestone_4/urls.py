@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
+from django.contrib.auth import views
+
 from accounts.views import index
 from accounts import urls as urls_accounts
 from products import urls as urls_products
@@ -29,8 +32,7 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',index, name='index'),
-    
-     url(r'^products/', include(urls_products)),
+    url(r'^products/', include(urls_products)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^products/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),

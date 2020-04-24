@@ -8,8 +8,13 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('author','title','text')
         
-        title = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
-        text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'}))
+        # title = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
+        # text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'}))
+        
+        widgets = {
+            'title':forms.TextInput(attrs={'class':'textinputclass'}),
+            'text': forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'})
+        }
         
          
         
@@ -20,8 +25,13 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('author','text')
         
-        author = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
-        text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea'}))
+        # author = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
+        # text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea'}))
+        
+        widgets = {
+            'author' : forms.TextInput(attrs={'class':'textinputclass'}),
+            'text' : forms.Textarea(attrs={'class':'editable medium-editor-textarea'})
+        }
         
         
         
