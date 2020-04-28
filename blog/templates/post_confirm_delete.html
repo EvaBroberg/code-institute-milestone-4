@@ -1,15 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block page_title %}Post{% endblock %} {% block content %}
 
-
-
-{% block page_title %}Post{% endblock %}
-
-{% block content %}
-
-<form method="POST">
-    {% csrf_token %}
-    <p>Are you sure you want to delete {{ object }} </p>
-    <input type="submit" class="btn btn-danger">
+<form class="grey" method="POST">
+  {% csrf_token %}
+  <p style="margin-top: 200px;">Are you sure you want to delete {{ object }}</p>
+  <button type="submit">Delete</button>
+  <!-- <input type="submit" class="btn btn-danger" value="DELETE" /> -->
 </form>
 
-{% endlock %}
+{% endblock %}
