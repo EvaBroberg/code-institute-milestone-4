@@ -1,15 +1,109 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container grey">
-  {% for post in post_list %}
-  <div class="post">
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-    <div class="date">
-      <p>Published on: {{post.published|date:"D M Y"}}</p>
+<section style="padding-right: 0px !important; padding-top: 130px !important;" class="section section-community blue-grey darken-4 box">
+  <div class="row">
+    <div class="meet-team-container col s12 m5 white-text box">
+      <div class="meet-team">
+        <h1>Body-building experst behind UgoGirl</h1>
+        <h6>WHO WE ARE</h6>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium reiciendis officiis sed eaque perspiciatis earum repellat, totam, magni
+          quod eius iure! Eaque modi vitae quo quod, consectetur dicta a sunt.
+        </p>
+        <h6>OUR MISSION</h6>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium reiciendis officiis sed eaque perspiciatis earum repellat, totam, magni
+          quod eius iure! Eaque modi vitae quo quod, consectetur dicta a sunt.
+        </p>
+      </div>
     </div>
-    <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+    <div style="padding-right: 0 !important;" class="col s12 m7 white-text box">
+      <div class="staff">
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+      <div class="staff">
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="person">
+          <img src="/static/img/expert1.jpg" alt="" />
+          <h6>Johanna Doe</h6>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  {% endfor %}
-</div>
+</section>
+
+<section class="section section-post-list blue-grey darken-4 box">
+  <div class="container">
+    {% for post in post_list %}
+    <div class="row">
+      <div class="col hide-on-small-only m1 valign-wrapper blog-display-addons">
+        <span>1</span>
+      </div>
+      <div class="col hide-on-small-only m3">
+        <div class="image-container">
+          <img src="/static/img/equipment2.jpg" alt="" />
+        </div>
+      </div>
+      <div style="position: relative; height: 25em;" class="col s12 m7">
+        <div class="blog-additional-info top-line">
+          <p>Published by: Johanna Doe</p>
+          <h1 class="blog-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        </div>
+        <div class="blog-additional-info bottom-line">
+          <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+          <p>Published on: {{post.published|date:"D M Y"}}</p>
+        </div>
+      </div>
+      <div class="col hide-on-small-only m1 valign-wrapper blog-display-addons">
+        <span class="material-icons">more_vert</span>
+      </div>
+      <!-- <div class="col s12">
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <div class="date">
+          <p>Published on: {{post.published|date:"D M Y"}}</p>
+        </div>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+      </div> -->
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
 {% endblock %}
+
+<!-- 
+  <div class="container grey">
+    {% for post in post_list %}
+    <div class="post">
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+      <div class="date">
+        <p>Published on: {{post.published|date:"D M Y"}}</p>
+      </div>
+      <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+    </div>
+    {% endfor %}
+  </div> -->

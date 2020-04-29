@@ -165,7 +165,7 @@ span.badge.white-text {
 
 .main-text h1 {
   font-family: 'Heebo', sans-serif;
-  font-size: 6.6rem !important;
+  font-size: 5vw;
   max-width: 60%;
 }
 
@@ -206,5 +206,118 @@ span.badge.white-text {
 @media (max-width: 600px) {
   .main-header {
     height: 50vh;
+  }
+
+  .main-text h1 {
+    font-size: 10vw;
+    max-width: 100%;
+  }
+
+  .main-text p {
+    max-width: 100%;
+  }
+
+  .scroll-icon {
+    display: none;
+  }
+
+  .button-holder {
+    text-align: center;
+  }
+
+  .main-header .showcase {
+    padding-top: 0px;
+  }
+
+  .choose-options-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .choose-options-box i {
+    font-size: 3.5rem;
+    padding-top: 16px;
+  }
+
+  .choose-options-box h4 {
+    padding-bottom: 0px;
+    margin-left: 0.5em;
+  }
+
+  .choose-options-box p {
+    display: none;
+  }
+
+  .about-title {
+    position: static;
+    width: 100%;
+    font-size: 10vw;
+  }
+
+  #about {
+    padding-top: 20px !important;
+  }
+
+  .about-text {
+    margin-top: 10px;
+  }
+
+  .slider {
+    height: 27vh !important;
+    display: flex;
+    justify-content: center;
+    background-color: #263238 !important;
+  }
+
+  .slider-title {
+    max-width: 90%;
+    font-size: 10vw;
+  }
+
+  .slider .slides {
+    display: none;
+  }
+
+  section#about {
+    position: relative;
+    height: 60vh;
+  }
+
+  .about-mobile-text {
+    position: absolute;
+    top: 0;
+    left: 0 !important;
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .about-mobile-image {
+    position: absolute;
+    top: 0;
+    left: 0 !important;
+    padding: 0 !important;
+    opacity: 0.5;
+  }
+
+  .section-services {
+    padding-top: 0px !important;
+  }
+
+  .service {
+    padding: 0 !important;
+  }
+
+  .service p {
+    text-align: justify;
+  }
+
+  .choose-plan-title {
+    font-size: 10vw;
+  }
+
+  .contact-form-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 10vw;
+    text-align: left;
   }
 }
