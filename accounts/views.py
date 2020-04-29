@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import LoginForm, RegistrationForm, ContactForm
+from accounts.forms import LoginForm, RegistrationForm, ContactForm, UserUpdateForm, ProfileUpdateForm
 
 
 def index(request):
@@ -82,5 +82,7 @@ def register(request):
 @login_required
 def profile(request):
     """User profile page"""
+    user_update_form = UserUpdateForm()
+    profile_update_form = ProfileUpdateForm()
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {'profile':user})
+    return render(request, 'profile.html', {'profile':user, 'user_update_form':user_update_form, 'profile_update_form':profile_update_form})

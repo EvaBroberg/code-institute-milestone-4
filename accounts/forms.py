@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import Contact
+from .models import Contact, Profile
 
 
 
@@ -10,13 +10,7 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name', 'email', 'message']
-        
-        
-        
-        
-    
-        
-        
+                
 
 class LoginForm(forms.Form):
     """User login form"""
@@ -33,6 +27,20 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2']
+        
+        
+class UserUpdateForm(forms.ModelForm):
+    """User profile update user info form"""
+    class Meta:
+        model = User
+        fields = ['email', 'username']
+        
+class ProfileUpdateForm(forms.ModelForm):
+    """Use profile info update form"""
+    class Meta:
+        model = Profile
+        fields = ['image']
+    
         
 
 def clean_email(self):
@@ -53,5 +61,4 @@ def clean_password(self):
     return password2
 
 
-    
     

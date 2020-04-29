@@ -1,7 +1,17 @@
 {% extends 'base.html' %} {% block page_title %}{{user}}'s profile{% endblock %} {% block content %}
-<div style="margin-top: 200px;" class="grey">
+<div class="grey">
   <h1>{{user}}</h1>
   <h1>{{user.email}}</h1>
   <img src="{{ user.profile.image.url }}" alt="user" />
 </div>
+
+<form enctype="multipart/form-data" method="POST">
+  <div class="contact-form card-panel blue-grey lighten-5 z-depth-5">
+    {% csrf_token %}
+    <h1>Profile Info</h1>
+    {{ user_update_form }} {{ profile_update_form }}
+  </div>
+  <input type="submit" value="Update" class="btn blue-grey send-message-btn" />
+</form>
+
 {% endblock %}
