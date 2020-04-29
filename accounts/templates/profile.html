@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block page_title %}{{user}}'s profile{% endblock %} {% block content %}
 <div style="margin-top: 200px;" class="grey">
   <h1>{{user}}</h1>
+  <h1>{{user.email}}</h1>
+  <img src="{{ user.profile.image.url }}" alt="user" />
 </div>
 {% endblock %}
