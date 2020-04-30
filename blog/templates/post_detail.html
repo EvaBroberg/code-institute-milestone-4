@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block page_title %}Post{% endblock %} {% block content %}
 
 <h1 class="posttitle loader">{{post.title}}</h1>
+<img src="{{ post.author.profile.image.url }}" alt="" />
 {% if post.published_date %}
 <div class="date postdate">
   {{ post.published_date }}

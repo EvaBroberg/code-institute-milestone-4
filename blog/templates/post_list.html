@@ -70,7 +70,7 @@
       </div>
       <div style="position: relative; height: 25em;" class="col s12 m7">
         <div class="blog-additional-info top-line">
-          <p>Published by: Johanna Doe</p>
+          <p>Published by: {{post.author}}</p>
           <h1 class="blog-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         </div>
         <div class="blog-additional-info bottom-line">
