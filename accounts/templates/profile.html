@@ -9,105 +9,98 @@
   {% endif %}
 </div>
 
-<section style="padding-top: 0 !important;" class="section section-profile">
-  <div class="row">
+<section style="padding: 0 !important;" class="section section-profile">
+  <div style="margin-bottom: 0 !important; display: flex;" class="row">
     <div style="padding: 80px 0 0 0 !important;" class="user-panel col s12 m2 blue-grey darken-4 white-text">
       <div class="user-image-holder">
         <img src="{{ user.profile.image.url }}" alt="user" />
       </div>
-      <h4 style="margin: 30px 0px; border-bottom: 1px solid white; padding-bottom: 5px;">{{user|upper}}</h4>
+      <h4 style="margin: 30px 0px 50px 0px; border-bottom: 1px solid white; padding-bottom: 5px;">{{user|upper}}</h4>
       <div class="profile-options">
         <a href="!#">PROGRESS</a>
         <a href="!#">MESSAGES</a>
         <a href="!#">COUCHES</a>
         <a href="!#">EVENTS</a>
         <a href="!#">MEMBERSIP</a>
+        <a href="!#">ACCOUNT</a>
       </div>
       <a href="#update-profile" class="update-profile-btn waves-effect btn-large modal-trigger">UPDATE PROFILE</a>
     </div>
 
-    <div style="padding-top: 80px;" class="profile-content col s12 m10 blue-grey lighten-3 black-text">
-      <section style="padding-top: 70px;" class="section section-stats center">
-        <div class="row">
-          <div class="col s12 m6 l3">
-            <div class="card-panel black-text center">
-              <i class="material-icons medium">insert_emoticon</i>
-              <h5>Monthly Visitors</h5>
-              <h3 class="count">28300</h3>
-              <div class="progress grey lighten-1">
-                <div class="determinate white" style="width: 40%;"></div>
-              </div>
-            </div>
+    <div style="padding-top: 130px;" class="profile-content col s12 m10 blue-grey lighten-3 black-text">
+      <div class="col s12 m7">
+        <div class="profile-image-title-wrapper">
+          <div class="profile-title">
+            <h1 class="white-text">
+              YOU GOT THIS <br />
+              KEEP PUMPIN'
+            </h1>
           </div>
-          <div class="col s12 m6 l3">
-            <div class="card-panel center">
-              <i class="material-icons medium">mode_edit</i>
-              <h5>Blog Posts</h5>
-              <h3 class="count">105</h3>
-              <div class="progress grey lighten-1">
-                <div class="determinate" style="width: 20%;"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card-panel white-text center">
-              <i class="material-icons medium">mode_comment</i>
-              <h5>Comments</h5>
-              <h3 class="count">1200</h3>
-              <div class="progress grey lighten-1">
-                <div class="determinate white" style="width: 40%;"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <div class="card-panel center">
-              <i class="material-icons medium">supervisor_account</i>
-              <h5>Users</h5>
-              <h3 class="count">350</h3>
-              <div class="progress grey lighten-1">
-                <div class="determinate" style="width: 10%;"></div>
-              </div>
+          <img class="responsive-img" src="/static/img/pumpit.jpg" alt="" />
+        </div>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      </div>
+
+      <div style="padding-left: 0 !important;" class="col s12 m2">
+        <div style="margin-top: 0;" class="card-panel black-text grey center valign-wrapper">
+          <div class="counter-wrapper">
+            <h5>Monthly Visitors</h5>
+            <h3 class="count">28300</h3>
+            <div class="progress grey lighten-1">
+              <div class="determinate white" style="width: 40%;"></div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="section section-visitors">
-        <div class="row">
-          <div class="col s12 m6 l8">
-            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Quick Todos</span>
-                <form id="todo-form">
-                  <div class="input-field">
-                    <input id="todo" type="text" placeholder="Add todo..." />
-                  </div>
-                </form>
-                <ul class="collection todos">
-                  <li class="collection-item">
-                    <div>
-                      Todo One
-                      <a href="#!" class="secondary-content delete">
-                        <i class="material-icons">close</i>
-                      </a>
-                    </div>
-                  </li>
-                  <li class="collection-item">
-                    <div>
-                      Todo Two
-                      <a href="#!" class="secondary-content delete">
-                        <i class="material-icons">close</i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        <div style="margin-top: 0;" class="card-panel black-text grey center valign-wrapper">
+          <div class="counter-wrapper">
+            <h5>Monthly Visitors</h5>
+            <h3 class="count">28300</h3>
+            <div class="progress grey lighten-1">
+              <div class="determinate white" style="width: 40%;"></div>
             </div>
           </div>
         </div>
-      </section>
+        <div style="margin-top: 0;" class="card-panel black-text grey center valign-wrapper">
+          <div class="counter-wrapper">
+            <h5>Monthly Visitors</h5>
+            <h3 class="count">28300</h3>
+            <div class="progress grey lighten-1">
+              <div class="determinate white" style="width: 40%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m3">
+        <div style="margin-top: 0;" class="card">
+          <div class="card-content">
+            <span class="card-title">Quick Todos</span>
+            <form id="todo-form">
+              <div class="input-field">
+                <input id="todo" type="text" placeholder="Add todo..." />
+              </div>
+            </form>
+            <ul class="collection todos">
+              <li class="collection-item">
+                <div>
+                  Todo One
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i>
+                  </a>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div>
+                  Todo Two
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
