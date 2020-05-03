@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegistrationForm, ContactForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
+from .decorators import allowed_users
 
 
 def index(request):
@@ -78,6 +79,7 @@ def register(request):
 
 
 @login_required
+@allowed_users(allowed_roles=['paying_member'])
 def profile(request):
     """User profile page"""
     user = User.objects.get(email=request.user.email)
