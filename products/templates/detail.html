@@ -3,14 +3,17 @@
 <section class="section section-product-detail blue-grey darken-4">
   <div class="container">
     <div class="product-row row">
-      <div class="product-img-container col s12 l3">
-        <img src="{{MEDIA_URL}}{{ product.image }}" class="responsive-img" / >
+      <div class="col s12 l4">
+        <div class="product-img-container">
+          <img src="{{MEDIA_URL}}{{ product.image }}" />
+        </div>
       </div>
-      <div class="description-col col s12 l6">
-        <h6 class="flow-text white-text">{{product.name}}</h6>
+      <div class="description-col col s12 l5">
+        <h6 style="margin-top: 0;" class="flow-text white-text">{{product.name}}</h6>
         <p class="white-text">
           <span class="grey-text">Price:</span>
-          <span style="font-size: 1.2rem; color: #607d8b; font-weight: bold; letter-spacing: 1.5px;">£ {{product.price}}</span> & FREE Delivery
+          <span style="font-size: 1.2rem; color: #607d8b; font-weight: bold; letter-spacing: 1.5px;">£
+            {{product.price}}</span> & FREE Delivery
         </p>
         <p>{{product.description|linebreaks}}</p>
       </div>
@@ -20,10 +23,18 @@
         <p class="white-text">In stock.</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
           {% csrf_token %}
-          <div class="input-group">
-            <div class="quantity-group valign-wrapper white-text">
-              <p>Quantity</p>
-              <input name="quantity" type="number" min="1" max="999" class="form-control quantity-form" value="1" />
+          <div class="form-group">
+            <div class="quantity qty-container">
+              <p>Qty:</p>
+              <input class="select-qty" name="quantity" type="number" min="1" max="999" value="1" />
+              <div class="quantity-nav">
+                <div class="quantity-up">
+                  <i class="material-icons white-text">arrow_drop_up</i>
+                </div>
+                <div class="quantity-down">
+                  <i class="material-icons white-text">arrow_drop_down</i>
+                </div>
+              </div>
             </div>
             <button class="add-to-cart-button btn blue-grey waves-effect waves-light" type="submit" name="action">
               Add to Cart

@@ -1,0 +1,10 @@
+.product-list-card-image {
+    height: 30vh;
+    width: 15vw;
+    padding: 30px;
+    contain: content;
+}
+
+.product-list-card-image img {
+    height: 100%;
+}

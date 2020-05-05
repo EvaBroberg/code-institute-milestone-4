@@ -105,5 +105,21 @@ def profile(request):
         
     return render(request, 'profile.html', {'profile':user, 'user_update_form':user_update_form, 'profile_update_form':profile_update_form})
 
+# def profile(request):
+#     args = {'user': request.user}
+#     return render(request, 'profile.html', args)
 
- 
+# def edit_profile(request):
+#     if request.method == 'POST':
+#         update_form = UserUpdateForm(request.POST, instance=request.user)
+        
+#         if update_form.is_valid():
+#             update_form.save()
+#             return redirect('profile')
+    
+#     else:
+#         update_form = UserUpdateForm(instance=request.user)
+#         return render(request, 'profile.html', {'update_form': update_form}) 
+        
+                
+    

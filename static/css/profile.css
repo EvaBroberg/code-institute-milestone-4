@@ -16,12 +16,11 @@
   border-radius: 50%;
   transition: all 0.3s ease;
   animation: pulse 1.6s infinite;
+  contain: content;
 }
 
 .user-image-holder img {
-  border-radius: 50%;
-
-  contain: content;
+  height: 100%;
 }
 
 @keyframes pulse {

@@ -21,8 +21,6 @@ class LoginForm(forms.Form):
 class RegistrationForm(UserCreationForm):
     """User registration form"""
     email = forms.EmailField(required=True)
-    # password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
-    # password2 = forms.CharField(label='Confirm password',widget=forms.PasswordInput)
     
     
     class Meta:
@@ -31,51 +29,24 @@ class RegistrationForm(UserCreationForm):
         
         def save(self, commit=True):
             if commit:
-                user.save()
+                user.save(self, **kwargs)
             return user
         
         
 
 class UserUpdateForm(forms.ModelForm):
     """User profile update user info form"""
+    email = forms.EmailField()
     
     class Meta:
         model = User
-        fields = ['email', 'username']
+        fields = ['username', 'email']
         
 class ProfileUpdateForm(forms.ModelForm):
     """Use profile info update form"""
     class Meta:
         model = Profile
         fields = ['image']
-   
-   
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
     
         
 

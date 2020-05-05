@@ -24,13 +24,14 @@ hr {
   background: #37474f;
 }
 
-#select-qty {
-  border: none;
+.select-qty {
+  border: none!important;
   margin: 0;
   margin-top: 1px;
   color: white;
   font-size: 1.3rem;
   font-weight: 100;
+  
 }
 
 .qty-container p {

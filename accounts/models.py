@@ -14,8 +14,6 @@ class Contact(models.Model):
     email = models.EmailField()
     message = models.TextField(max_length=2000)
     
-    def __str__(self):
-        return self.name
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -37,4 +35,4 @@ class Profile(models.Model):
             
         
 
-        
+
