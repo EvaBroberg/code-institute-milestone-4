@@ -106,17 +106,19 @@
 </section>
 
 <div id="update-profile" class="modal">
-  <div class="modal-content">
+  <div style="position: relative;" class="modal-content">
     <form enctype="multipart/form-data" method="POST">
       <div class="contact-form edit-profile card-panel z-depth-0">
         {% csrf_token %}
         <h1>Profile Info</h1>
-        {{ user_update_form }} {{ profile_update_form }}
+        {{ user_update_form }}
+        {{ profile_update_form }}
+      </div>
+      <div class="modal-footer update-info-button">
+        <input type="submit" value="Update" class="btn blue-grey send-message-btn" />
       </div>
     </form>
   </div>
-  <div class="modal-footer">
-    <input type="submit" value="Update" class="btn blue-grey send-message-btn" />
-  </div>
+
 </div>
 {% endblock %}

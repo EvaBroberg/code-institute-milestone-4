@@ -4,20 +4,22 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegistrationForm, ContactForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
-from .decorators import allowed_users
+# from .decorators import allowed_user
 
 
 def index(request):
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
         
+        
         if contact_form.is_valid():
             contact_form.save()
             
-            # messages.success(request, 'form was posted')
+            messages.success(request, 'form was posted')
                   
     else:
         contact_form = ContactForm()
@@ -62,8 +64,10 @@ def register(request):
         
         if registration_form.is_valid():
             registration_form.save()
+            messages.success(request, f'Account was created')
             
             user = auth.authenticate(username=request.POST['username'],password=request.POST['password1'])
+            
             
             if user:
                 auth.login(user=user,request=request)
@@ -79,10 +83,10 @@ def register(request):
 
 
 @login_required
-@allowed_users(allowed_roles=['paying_member'])
 def profile(request):
     """User profile page"""
     user = User.objects.get(email=request.user.email)
+
     
     if request.method == 'POST':
         user_update_form = UserUpdateForm(request.POST, instance=request.user)
@@ -100,3 +104,6 @@ def profile(request):
         
         
     return render(request, 'profile.html', {'profile':user, 'user_update_form':user_update_form, 'profile_update_form':profile_update_form})
+
+
+ 

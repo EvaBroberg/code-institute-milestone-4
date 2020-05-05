@@ -160,3 +160,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 LOGIN_REDIRECT_URL = '/'
 
+

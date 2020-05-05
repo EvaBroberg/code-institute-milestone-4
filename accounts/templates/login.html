@@ -5,11 +5,41 @@
 {% block page_title %}Login{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ login_form }}
-        <button type="submit">Login</button>
-    </form>
+<section class="section-signup">
+    <div class="primary-overlay">
+      <div class="container">
+        <div class="form-wrapper">
+          <div class="row">
+            <div class="col s12 m6">
+              <h4>Get a free account</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam assumenda odit accusantium saepe, consequuntur mollitia?</p>
+              <h4>Get access to our community</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam esse tenetur temporibus officia voluptatem animi.</p>
+              <h4>Shop our bestspoke excercise gear</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo consequatur qui deserunt dolor quidem temporibus!</p>
+            </div>
+            <div class="col s12 m6">
+              <form enctype="multipart/form-data" method="POST">
+                <div class="contact-form card-panel blue-grey lighten-5 z-depth-5">
+                  {% csrf_token %} {{ login_form }}
+                </div>
+                <input type="submit" value="Log  In" class="btn blue-grey send-message-btn" />
+              </form>
+              <div class="under-text">
+                <p>Don't have an account?</li><a href="{% url 'register' %}">Register here.</a></p>
+                <p>Forgot your password?</li><a href="{% url 'password_reset' %}">Reset it here.</a></p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p>Forgot your password?</li><a href="{% url 'password_reset' %}">Reset it here.</a></p>
+    
 {% endblock %}
+
+
+
+

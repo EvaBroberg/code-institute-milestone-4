@@ -20,17 +20,25 @@ class LoginForm(forms.Form):
 
 class RegistrationForm(UserCreationForm):
     """User registration form"""
-    password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password',widget=forms.PasswordInput)
+    email = forms.EmailField(required=True)
+    # password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
+    # password2 = forms.CharField(label='Confirm password',widget=forms.PasswordInput)
     
     
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2']
         
+        def save(self, commit=True):
+            if commit:
+                user.save()
+            return user
         
+        
+
 class UserUpdateForm(forms.ModelForm):
     """User profile update user info form"""
+    
     class Meta:
         model = User
         fields = ['email', 'username']
@@ -40,6 +48,34 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+   
+   
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     
         
 

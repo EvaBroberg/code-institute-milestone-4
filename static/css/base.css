@@ -102,6 +102,13 @@ span.character-counter {
   margin-bottom: 0 !important;
 }
 
+.contact-form-title {
+  color: #cfd8dc;
+  font-family: 'Heebo', sans-serif;
+  font-size: 6.5rem;
+  margin-top: 0;
+}
+
 textarea#id_message {
   height: 100px;
   border-top: none;
@@ -316,7 +323,6 @@ span.badge.white-text {
   }
 
   .contact-form-title {
-    font-family: 'Heebo', sans-serif;
     font-size: 10vw;
     text-align: left;
   }
