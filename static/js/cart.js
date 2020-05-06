@@ -45,3 +45,24 @@ $(document).ready(function () {
     });
   });
 });
+
+
+
+
+// transfer to checkout
+
+function updateProgress(currentStep) {
+  $('section div').removeClass('current');
+  $('.step#' + currentStep).toggleClass('current');
+  $('.step#' + currentStep).prevAll('div').toggleClass('current');
+}
+
+var steps = $('.step').length;
+var currentStep = 1;
+$('.step#' + currentStep).toggleClass('current');
+
+
+$('#stepper').on('click', function () {
+  currentStep < steps ? currentStep++ : currentStep = 1;
+  updateProgress(currentStep);
+});
