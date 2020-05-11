@@ -1,5 +1,9 @@
+from django.conf import settings
 from django.db import models
 from products.models import Product
+
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Create your models here.
 
@@ -26,3 +30,9 @@ class OrderLineItem(models.Model):
     
     def __str__(self):
         return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
+    
+    
+    
+    
+    
+    

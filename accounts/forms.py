@@ -2,8 +2,18 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import Contact, Profile
+from django.forms import ModelForm
+from .models import *
 
+class CustomerForm(ModelForm):
+    """
+    customers are able to update their own information
+    but they are not able to update the user
+    """
+    class Meta:
+        model   = Customer
+        fields  = '__all__'
+        exclude = ['user']
 
 
 class ContactForm(forms.ModelForm):
@@ -20,34 +30,10 @@ class LoginForm(forms.Form):
 
 class RegistrationForm(UserCreationForm):
     """User registration form"""
-    email = forms.EmailField(required=True)
-    
-    
     class Meta:
-        model = User
-        fields = ['email', 'username', 'password1', 'password2']
-        
-        def save(self, commit=True):
-            if commit:
-                user.save(self, **kwargs)
-            return user
-        
-        
+        model  = User
+        fields = ['username', 'email', 'password1', 'password2']
 
-class UserUpdateForm(forms.ModelForm):
-    """User profile update user info form"""
-    email = forms.EmailField()
-    
-    class Meta:
-        model = User
-        fields = ['username', 'email']
-        
-class ProfileUpdateForm(forms.ModelForm):
-    """Use profile info update form"""
-    class Meta:
-        model = Profile
-        fields = ['image']
-    
         
 
 def clean_email(self):

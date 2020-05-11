@@ -6,9 +6,10 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
-from accounts.forms import LoginForm, RegistrationForm, ContactForm, UserUpdateForm, ProfileUpdateForm
+from accounts.forms import LoginForm, RegistrationForm, ContactForm
 from django.contrib import messages
-# from .decorators import allowed_user
+from django.forms import ModelForm
+from .decorators import allowed_users
 
 
 def index(request):
@@ -35,7 +36,7 @@ def logout(request):
 
 
 def login(request):
-    """Return login page"""
+    """Login page"""
     if request.user.is_authenticated:
         return redirect(reverse('index'))
     if request.method == 'POST':
@@ -55,71 +56,85 @@ def login(request):
 
 
 def register(request):
-    """Return registration page"""
+    """Creates new user, assigns them to a a customer group and creates customer profile for that user"""
     if request.user.is_authenticated:
         return redirect(reverse('index'))
     
+    form = RegistrationForm()
     if request.method == 'POST':
-        registration_form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST)
         
-        if registration_form.is_valid():
-            registration_form.save()
-            messages.success(request, f'Account was created')
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
             
-            user = auth.authenticate(username=request.POST['username'],password=request.POST['password1'])
-            
-            
-            if user:
-                auth.login(user=user,request=request)
-                return redirect(reverse('index'))
-            else:
-                #alert that unable to register
-                pass
-    else:
-        registration_form = RegistrationForm()
-    return render(request, 'register.html', {'registration_form': registration_form}) 
+            messages.success(request, 'Account for ' + username + ' was successfully created!')
+            return redirect('login')
+    
+    context = {'form':form}
+    
+    return render(request, 'register.html', context) 
 
 
 
+@login_required(login_url='login')
+# @allowed_users(allowed_roles=['customer'])
+def userPage(request):
+    """user account page"""
+    orders       = request.user.customer.order_set.all()
+    total_orders = orders.count()
+    delivered    = orders.filter(status='Delivered').count()
+    pending      = orders.filter(status='Pending').count()
+    
+    context = {
+        'orders':orders,
+        'total_orders':total_orders,
+        'delivered':delivered,
+        'pending':pending
+        }
+    
+    return render(request, 'user.html', context)
 
-@login_required
-def profile(request):
-    """User profile page"""
-    user = User.objects.get(email=request.user.email)
 
+@login_required(login_url='login')
+# @allowed_users(allowed_roles=['customer'])
+def accountSettings(request):
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
     
     if request.method == 'POST':
-        user_update_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_update_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
         
-        if user_update_form.is_valid() and profile_update_form.is_valid():
-            user_update_form.save()
-            profile_update_form.save()
-            messages.success(request, f'Your profile had been updated!')
-            return redirect('profile')
-        
-    else:
-        user_update_form = UserUpdateForm(instance=request.user)
-        profile_update_form = ProfileUpdateForm(instance=request.user.profile)
-        
-        
-    return render(request, 'profile.html', {'profile':user, 'user_update_form':user_update_form, 'profile_update_form':profile_update_form})
-
-# def profile(request):
-#     args = {'user': request.user}
-#     return render(request, 'profile.html', args)
-
-# def edit_profile(request):
-#     if request.method == 'POST':
-#         update_form = UserUpdateForm(request.POST, instance=request.user)
-        
-#         if update_form.is_valid():
-#             update_form.save()
-#             return redirect('profile')
+        if form.is_valid():
+            form.save()
     
-#     else:
-#         update_form = UserUpdateForm(instance=request.user)
-#         return render(request, 'profile.html', {'update_form': update_form}) 
+    context = {'form':form}
+    
+    return render(request, 'account_settings.html', context)
+
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
+def customer(request, pk):
+    customer    = Customer.objects.get(id=pk)
+    orders      = customer.order_set.all()
+    order_count = orders.count()
+    
+    myFilter = OrderFilter(request.GET, queryset=orders)
+    orders = myFilter.qs
+    
+    context = {
+        'customer':customer,
+        'orders':orders,
+        'order_count':order_count,
+        'myFilter':myFilter
+        }
+    
+    return render(request, 'customer.html', context)
+
+
+
         
                 
     

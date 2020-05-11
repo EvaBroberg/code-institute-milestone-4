@@ -6,32 +6,27 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from PIL import Image
+from products.models import Product
 
 # Create your models here.
 
 class Contact(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
+    name    = models.CharField(max_length=100)
+    email   = models.EmailField()
     message = models.TextField(max_length=2000)
+
+class Customer(models.Model):
+    """Creates user instance"""
+    user         = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    name         = models.CharField     (max_length=200, null=True)
+    phone        = models.CharField     (max_length=200, null=True)
+    email        = models.CharField     (max_length=200, null=True)
+    profile_pic  = models.ImageField    (default='default.jpg', null=True, blank=True)
+    date_created = models.DateTimeField (auto_now_add=True, null=True)
     
-    
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_images')
     
     def __str__(self):
-        return f'{self.user.username} Profile'
-    
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-    
-        
-        img = Image.open(self.image.path)
-        
-        if img.height > 200 or img.width > 200:
-            output_size = (200, 200)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        return self.name
             
         
 

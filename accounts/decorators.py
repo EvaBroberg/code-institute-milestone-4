@@ -1,26 +1,52 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 
-# def allowed_users(allowed_roles=[]):
-#     def decorator(view_func):
-#         def wrapper_func(request, *args, **kwargs):
+def unauthenticated_user(view_func):
+    """
+    Decorator allows only unauthenticated users access registration and login pages.
+    Authenticated users get redirected to home page.
+    """
+    def wrapper_func(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            return view_func(request, *args, **kwargs)
+    return wrapper_func
+
+
+def allowed_users(allowed_roles=[]):
+    """Identify users that have permissions to access different parts of the website"""
+    def decorator(view_func):
+        def wrapper_func(request, *args, **kwargs):
+            group = None
             
-#             group = None
-#             if request.user.group.exist():
-#                 group = request.user.group.all().name
+            if request.user.groups.exists():
+                group = request.user.groups.all()[0].name
+            
+            if group in allowed_roles:
+                return view_func(request, *args, **kwargs)
+            else:
+                return HttpResponse('You don\'t have a permission to access this page')
                 
-#             if group in allowed_roles:
-#                 return view_func(request, *args, **kwargs)
-#             else:
-#                 return HttpResponse('Not authorised')
-            
-#         return wrapper_func
-#     return decorator
+        return wrapper_func
+    return decorator
 
 
-# add decorator with the user type which is allowed for each section in a same way as log in required
+def admin_only(view_func):
+    """Checks user group and redirects them to appropriate site"""
+    def wrapper_func(request, *args, **kwargs):
+        group = None
+        
+        if request.user.groups.exists():
+                group = request.user.groups.all()[0].name
+                
+        if group == 'customer':
+            return redirect('user-page')
+        
+        elif group == 'admin':
+            return view_func(request, *args, **kwargs)
+        
+    return wrapper_func
 
-# user types are:
-################ staff
-################ paying_member
-################ registered_user
+
+
