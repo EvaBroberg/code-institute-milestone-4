@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
+
 from .models import *
 
 class CustomerForm(ModelForm):
@@ -42,6 +43,7 @@ def clean_email(self):
     if User.objects.filter(email=email).exclude(username=username):
         raise forms.ValidationError(u'This email is already registered.')
     return email
+
 
 
 def clean_password(self):

@@ -10,7 +10,6 @@ urlpatterns = [
     url(r'^register/$',register, name='register'),
     # url(r'^profile/$',profile, name='profile'),
     url(r'^password-reset/', include(url_reset)),
-    url(r'^user/$', userPage, name='user-page'),
-    url(r'^account/$', accountSettings, name='account'),
-    url(r'^customer/(?P<id>\d+)', customer, name='customer'),
+    # url(r'^user/$', userPage, name='user-page'),
+    url(r'^user/$', accountSettings, name='user-page')
 ]

@@ -10,6 +10,7 @@ from accounts.forms import LoginForm, RegistrationForm, ContactForm
 from django.contrib import messages
 from django.forms import ModelForm
 from .decorators import allowed_users
+from .forms import CustomerForm
 
 
 def index(request):
@@ -81,19 +82,7 @@ def register(request):
 # @allowed_users(allowed_roles=['customer'])
 def userPage(request):
     """user account page"""
-    orders       = request.user.customer.order_set.all()
-    total_orders = orders.count()
-    delivered    = orders.filter(status='Delivered').count()
-    pending      = orders.filter(status='Pending').count()
-    
-    context = {
-        'orders':orders,
-        'total_orders':total_orders,
-        'delivered':delivered,
-        'pending':pending
-        }
-    
-    return render(request, 'user.html', context)
+    return render(request, 'profile.html')
 
 
 @login_required(login_url='login')
@@ -110,28 +99,12 @@ def accountSettings(request):
     
     context = {'form':form}
     
-    return render(request, 'account_settings.html', context)
+    return render(request, 'profile.html', context)
 
 
 
-@login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
-def customer(request, pk):
-    customer    = Customer.objects.get(id=pk)
-    orders      = customer.order_set.all()
-    order_count = orders.count()
-    
-    myFilter = OrderFilter(request.GET, queryset=orders)
-    orders = myFilter.qs
-    
-    context = {
-        'customer':customer,
-        'orders':orders,
-        'order_count':order_count,
-        'myFilter':myFilter
-        }
-    
-    return render(request, 'customer.html', context)
+
+
 
 
 

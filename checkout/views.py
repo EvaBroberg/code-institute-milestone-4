@@ -1,11 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+
+from django.urls import reverse
+
+from django.http import HttpResponse, JsonResponse
+
+from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import Group
+from django.contrib import auth
+
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from .forms import OrderForm, MakePaymentForm
-from .models import OrderLineItem
+
 from django.conf import settings
 from django.utils import timezone
+
+from .models import Order, OrderLineItem
 from products.models import Product
+from accounts.models import Customer
+
 import stripe
 
 # Create your views here.
