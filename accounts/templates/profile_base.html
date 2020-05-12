@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block page_title %}{{user}}'s profile{% endblock %} {% block content %}
+<div>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<section style="padding: 0 !important; overflow:hidden;" class="section section-profile">
+    <div style="margin-bottom: 0 !important; display: flex;" class="row">
+        <div style="padding: 80px 0 0 0 !important;" class="user-panel col s12 m2 blue-grey darken-4 white-text">
+            <div class="user-image-holder">
+                <img src="{{ request.user.customer.profile_pic.url }}" alt="user" />
+            </div>
+            <h4 style="margin: 65px 0px 50px 0px; border-bottom: 1px solid white; padding-bottom: 5px;">
+                {{request.user.customer.name|upper}}</h4>
+            <div class="profile-options">
+                <a href="{% url 'progress' %}">PROGRESS</a>
+                <a href="!#">MESSAGES</a>
+                <a href="!#">COUCHES</a>
+                <a href="!#">NEWS</a>
+                <a style="margin-bottom: 63px;" href="!#">MEMBERSIP</a>
+            </div>
+        </div>
+
+        <div style="padding: 168px 0px 0px 0px!important;"
+            class="profile-content col s12 m10 blue-grey darken-2 black-text">
+
+            {% block progress_content %}
+            {%endblock%}
+
+        </div>
+    </div>
+</section>
+
+<div id="update-profile" class="modal">
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-body">
+                <a style="float:right;" href="{% url 'user-page' %}" class="btn btn-warning">X</a>
+                <h3 style="text-align: center;">Account Settings</h3>
+
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input name="Update Information" type="submit" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

@@ -5,7 +5,7 @@ window.onload = function () {
     animationEnabled: true,
     theme: 'light2',
     title: {
-      text: 'Daily Visitors',
+      text: '',
     },
     axisY: {
       includeZero: false,

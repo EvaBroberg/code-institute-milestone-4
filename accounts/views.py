@@ -103,6 +103,12 @@ def accountSettings(request):
 
 
 
+def progress(request):
+    return render(request, 'progress.html')
+    
+
+
+
 
 
 
