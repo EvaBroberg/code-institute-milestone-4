@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.PostListView.as_view(template_name='post_list.html'), name='post_list'),
-    url(r'^community/',views.CommunityView.as_view(),name='community'),
     url(r'^post/(?P<pk>\d+)$',views.PostDetailView.as_view(template_name='post_detail.html'),name='post_detail'),
     url(r'^post/new/$',views.CreatePostView.as_view(),name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$',views.PostUpdateView.as_view(template_name='post_form.html'),name='post_edit'),

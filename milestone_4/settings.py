@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'tags',
     'materializeform',
     'blog',
+    'memberships',
+    'plans',
 ]
 
 MIDDLEWARE = [

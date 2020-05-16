@@ -1,15 +1,11 @@
-{% extends 'base.html' %}
-
-
-{% block page_title %}Comment{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block page_title %}Comment{% endblock %} {% block content %}
 <h1>New comment</h1>
 <form class="post-form" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Post comment</button>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Post comment</button>
 </form>
 
-<script>var editor = new MediumEditor('.editable');</script>
-{% endlock %}
+<script>
+  var editor = new MediumEditor('.editable');
+</script>
+{% endblock %}

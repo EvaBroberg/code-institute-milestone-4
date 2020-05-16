@@ -1,37 +1,35 @@
 from django import forms
-from blog.models import Post, Comment
+from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
+    class Meta():
 
-    class Meta:
-
-        model = Post
+        model  = Post
         fields = ('author','title','text')
         
-        # title = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
-        # text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'}))
+        title = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
+        text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'}))
         
-        widgets = {
-            'title':forms.TextInput(attrs={'class':'textinputclass'}),
-            'text': forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'})
-        }
+        # widgets = {
+        #     'title' : forms.TextInput(attrs={'class':'textinputclass'}),
+        #     'text'  : forms.Textarea(attrs={'class':'editable medium-editor-textarea postcontent'})
+        # }
         
          
         
 class CommentForm(forms.ModelForm):
 
-    class Meta:
-
-        model = Comment
+    class Meta():
+        model  = Comment
         fields = ('author','text')
         
-        # author = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
-        # text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea'}))
+        author = forms.CharField(widget=forms.TextInput(attrs={'class':'textinputclass'}))
+        text = forms.CharField(widget=forms.Textarea(attrs={'class':'editable medium-editor-textarea'}))
         
-        widgets = {
-            'author' : forms.TextInput(attrs={'class':'textinputclass'}),
-            'text' : forms.Textarea(attrs={'class':'editable medium-editor-textarea'})
-        }
+        # widgets = {
+        #     'author' : forms.TextInput(attrs={'class':'textinputclass'}),
+        #     'text'   : forms.Textarea(attrs={'class':'editable medium-editor-textarea'})
+        # }
         
         
         

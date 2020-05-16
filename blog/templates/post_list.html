@@ -81,29 +81,11 @@
       <div class="col hide-on-small-only m1 valign-wrapper blog-display-addons">
         <span class="material-icons">more_vert</span>
       </div>
-      <!-- <div class="col s12">
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <div class="date">
-          <p>Published on: {{post.published|date:"D M Y"}}</p>
-        </div>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
-      </div> -->
     </div>
     {% endfor %}
   </div>
+
+  <section class="section section-admin-panel"></section>
 </section>
 
 {% endblock %}
-
-<!-- 
-  <div class="container grey">
-    {% for post in post_list %}
-    <div class="post">
-      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-      <div class="date">
-        <p>Published on: {{post.published|date:"D M Y"}}</p>
-      </div>
-      <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
-    </div>
-    {% endfor %}
-  </div> -->
