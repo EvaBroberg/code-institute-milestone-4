@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section style="padding-top: 200px;" class="section section-checkout blue-grey darken-4">
+  <div style="padding-left: 100px;" class="row">
+    <h3>Payment Details</h3>
+    <div class="col s12 m8 blue-grey darken-4">
+      <div class="checkout-progress-indicator">
+        <h4>{{selected_membership}}</h4>
+        <h5>£{{selected_membership.price}}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

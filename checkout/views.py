@@ -83,5 +83,7 @@ def checkout(request):
             "publishable": settings.STRIPE_PUBLISHABLE_KEY
         }
     )
+    
+
                 
             

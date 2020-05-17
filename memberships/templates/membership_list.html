@@ -39,7 +39,8 @@
               <form method="POST" action="{% url 'select' %}">
                 {% csrf_token %} {% if object.membership_type != current_membership %}
                 <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
-                <a class="btn right-btn" role="button">Buy now</a>
+                <!-- <a href="{% url 'select' %}" class="btn right-btn" role="button">Buy now</a> -->
+                <button>select</button>
                 {% else %}
                 <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
                 <a class="btn right-btn disabled" role="button">Bought</a>
