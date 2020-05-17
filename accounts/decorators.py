@@ -50,3 +50,38 @@ def admin_only(view_func):
 
 
 
+# def members_only(view_func):
+#     def wrapper_func(request, *args, **kwargs):
+#        plan = None
+       
+#        if request.user.plans.exists():
+#            plan = request.user.plans.all()[0].name
+#            return redirect('progress')
+#        else:
+#            return HttpResponse('You don\'t have membership')
+       
+#     return wrapper_func
+
+
+def members_only(view_func):
+    def wrapper_func(self, request, pk, *args, **kwargs):
+        plan_qs = Plan.objects.filter(pk=id)
+        if plan_qs.exists():
+            plan = plan_qs.first()
+        
+        user_membership = UserMembership.objects.filter(user=request.user).first()
+        user_membership_type = user_membership.membership.user_membership_type
+        
+        pages_allowed_mem_types = plan.allowed_memberships.all()
+        
+        if pages_allowed_mem_types.filter(user_membership_type=user_membership_type).exists():
+            return render(request, 'progress.html')
+        
+    return wrapper_func
+           
+ 
+       
+        
+
+
+

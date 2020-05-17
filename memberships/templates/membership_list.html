@@ -1,0 +1,57 @@
+{% extends 'index.html' %} {% load static %} {% block plans %}
+
+<section id="plans" class="section section-plans blue-grey darken-4 white-text center scrollspy box">
+  <div class="container">
+    <h2 style="color: #cfd8dc;" class="choose-plan-title">CHOOSE A PLAN</h2>
+    <div class="row">
+      <!-- <div class="col s12 m4 box">
+        <div class="card blue-grey lighten-5 z-depth-4">
+          <div class="plan-card card-content">
+            <h3>Starter</h3>
+            <h5>£9.98/mo</h5>
+            <div class="card-action">
+              <ul>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+              </ul>
+              <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
+              <a href="{% url 'checkout' %}" class="btn right-btn" role="button">Buy now</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      {% for object in object_list %}
+      <div class="col s12 m4 box">
+        <div class="card blue-grey lighten-5 z-depth-4">
+          <div class="plan-card card-content">
+            <h3>{{object.membership_type}}</h3>
+            <h5>£{{ object.price }}/mo</h5>
+            <div class="card-action">
+              <ul>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+                <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
+              </ul>
+
+              <form method="POST" action="{% url 'select' %}">
+                {% csrf_token %} {% if object.membership_type != current_membership %}
+                <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
+                <a class="btn right-btn" role="button">Buy now</a>
+                {% else %}
+                <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
+                <a class="btn right-btn disabled" role="button">Bought</a>
+                {% endif %}
+                <input type="hidden" name="membership_type" value="{{ object.membership_type }}" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock plans %}

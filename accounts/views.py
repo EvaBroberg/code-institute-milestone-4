@@ -9,8 +9,12 @@ from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegistrationForm, ContactForm
 from django.contrib import messages
 from django.forms import ModelForm
-from .decorators import allowed_users
+from .decorators import allowed_users, members_only
 from .forms import CustomerForm
+from django.http import HttpResponse
+
+from memberships.models import *
+from plans.models import *
 
 
 def index(request):
@@ -83,6 +87,27 @@ def register(request):
 def userPage(request):
     """user account page"""
     return render(request, 'profile.html')
+
+
+# class ProgressView(View):
+#     def get(self, request, pk, *args, **kwargs):
+#         plan_qs = Plan.objects.filter(pk=id)
+#         if plan_qs.exists():
+#             plan = plan_qs.first()
+        
+#         user_membership = UserMembership.objects.filter(user=request.user).first()
+#         user_membership_type = user_membership.membership.user_membership_type
+        
+#         pages_allowed_mem_types = plan.allowed_memberships.all()
+        
+#         if pages_allowed_mem_types.filter(user_membership_type=user_membership_type).exists():
+#             return render(request, 'progress.html')
+#         else:
+#             return HttpResponse('You don\'t have membership')
+        
+@members_only
+def progressPage(request):
+    return render(request, 'progress.html')       
 
 
 @login_required(login_url='login')

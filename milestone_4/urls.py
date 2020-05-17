@@ -24,6 +24,7 @@ from products import urls as urls_products
 from cart import urls as urls_cart
 from search import urls as urls_search
 from blog import urls as urls_blog
+from memberships import urls as urls_memberships
 from plans import urls as urls_plans
 from checkout import urls as urls_checkout
 from products.views import product_list_view
@@ -32,6 +33,7 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+      url(r'^$', include(urls_memberships)),
     url(r'^$',index, name='index'),
     url(r'^products/', include(urls_products)),
     url(r'^accounts/', include(urls_accounts)),
@@ -40,6 +42,6 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^blog/',include(urls_blog)),
-    url(r'^plans/', include(urls_plans)),
+  
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
