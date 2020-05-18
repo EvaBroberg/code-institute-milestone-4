@@ -5,32 +5,20 @@
   Stripe.publishableKey = '{{ publishable }}';
   //]]>
 </script>
-<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
 
-
-
-
-{% block content %}
-
+{% endblock %} {% block content %}
 
 <section style="padding-top: 200px;" class="section section-checkout blue-grey darken-4">
-  <div style="    padding-left: 100px;" class="row">
+  <div style="padding-left: 100px;" class="row">
     <h3>Payment Details</h3>
     <div class="col s12 m8 blue-grey darken-4">
-
       <div class="checkout-progress-indicator">
-
-
-
-
         <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
           <div id="credit-card-errors" style="display: none;">
             <div class="alert-message block-message error" id="stripe-error-message"></div>
           </div>
           {% csrf_token %}
           <div class="form-group col-md-6">
-
             {{ order_form }}
             <div class="form-group col-md-12">
               <input class="btn btn-primary" id="next_payment_btn" type="submit" value="NEXT" />
@@ -40,21 +28,11 @@
           <div class="form-group col-md-6">
             {{ payment_form }}
             <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Buy" />
-            <div class="form-group col-md-12">
-
-            </div>
+            <div class="form-group col-md-12"></div>
           </div>
-
-
-
         </form>
-
-
       </div>
-
-
     </div>
-
 
     <div class="col s12 m4 blue-grey darken-3">
       {% for item in cart_items %}
@@ -71,19 +49,13 @@
         </div>
       </div>
 
-
-
       {% endfor %}
       <div class="total">
         <p>Total</p>
         <p>£{{ total }}</p>
       </div>
-
     </div>
-
-
   </div>
-
 </section>
 
 {% endblock %}
