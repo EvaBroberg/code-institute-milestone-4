@@ -9,9 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  {% block head_content %}{%endblock%}
+
   <title>{% block page_title %}{% endblock %} UgoGirl </title>
-  
+
   <link rel="shortcut icon" href="">
+
+  <script src="https://js.stripe.com/v3/"></script>
+
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
@@ -170,7 +175,7 @@
   <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-  <script src="js/chart.js"></script>
+
 
 
   <script>
@@ -202,10 +207,10 @@
 
       document.getElementById('year').innerHTML = new Date().getFullYear();
     });
-
-
-
   </script>
+
+
+  
   <script type="text/javascript" src="canvasjs.min.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.5.1.js"

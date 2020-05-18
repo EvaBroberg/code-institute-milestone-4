@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Membership, UserMembership, Subscription
 
 import stripe
+stripe.api_key = "sk_test_OCu5QnGM8lYQBOG0BsQHtNHt00IKoPzlw6"
+
 
 
 def get_user_membership(request):
@@ -85,33 +87,28 @@ def PaymentView(request):
      
      
      if request.method == 'POST':
-         try:
-             token = request.POST['stripeToken']
-             subscription = stripe.Subscription.create(
-                 customer=user_membership.stripe_customer_id,
-                 items=[{
-                     "plan": selected_membership.stripe_plan_id
-                     }],
-                 source = token
-                 )
-             return redirect(reverse(
-                 'update_transactions', 
-                 kwargs={
-                     'subscription_id': subscription.id
-                 }))
+        try:
+            token = request.POST['stripeToken']
+            cus = stripe.Customer.retrieve(user_membership.stripe_customer_id)
+            cus.source = token
+            cus.save()
+            subscription = stripe.Subscription.create(
+                customer=user_membership.stripe_customer_id,
+                items=[
+                     { "plan": selected_membership.stripe_plan_id },
+                ]
+            )
+            return redirect(reverse('update_transactions', kwargs={
+                'sub_id': subscription.id
+            }))
+        except stripe.error.CardError:
+            messages.info(request, 'Your card has been declined')
              
-             
-             
-             
-         except stripe.cardError as e:
-             messages.info(request, "Card has been declined")
-             
-     
      context = {
-         'publishKey':publishKey,
-         'selected_membership':selected_membership
-     }
-     
+             'publishKey':publishKey,
+             'selected_membership':selected_membership
+         }
+            
      return render(request, 'membership_payment.html', context)
  
  
@@ -132,4 +129,4 @@ def updateTransactions(request, subscription_id):
         pass
     
     messages.info(request, f'successfully created {selected_membership} memvership')
-    return redirect('/')
+    return redirect(reverse('index'))
