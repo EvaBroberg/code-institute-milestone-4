@@ -39,6 +39,7 @@ def get_selected_membership(request):
 
 class MembershipSelectView(LoginRequiredMixin, ListView):
     model = Membership
+    
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -64,6 +65,7 @@ class MembershipSelectView(LoginRequiredMixin, ListView):
         request.session['selected_membership_type'] = selected_membership.membership_type
 
         return HttpResponseRedirect(reverse('payment'))
+
 
 @login_required
 def PaymentView(request):
