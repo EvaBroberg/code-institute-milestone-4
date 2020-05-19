@@ -20,9 +20,9 @@
             <div class="profile-options">
                 <a href="{% url 'progress' %}">PROGRESS</a>
                 <a href="!#">MESSAGES</a>
-                <a href="!#">COUCHES</a>
+                <a href="{% url 'coutches' %}">COUCHES</a>
                 <a href="!#">NEWS</a>
-                <a style="margin-bottom: 63px;" href="!#">MEMBERSIP</a>
+                <a style="margin-bottom: 63px;" href="{% url 'user_membership' %}">MEMBERSIP</a>
             </div>
         </div>
 
@@ -30,6 +30,9 @@
             class="profile-content col s12 m10 blue-grey darken-2 black-text">
 
             {% block progress_content %}
+            {%endblock%}
+
+            {% block coutches_content %}
             {%endblock%}
 
         </div>

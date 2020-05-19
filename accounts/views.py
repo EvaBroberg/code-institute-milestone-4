@@ -16,6 +16,27 @@ from django.http import HttpResponse
 from memberships.models import *
 
 
+######################################my added
+from memberships.models import *
+from memberships.views import *
+
+
+
+#########################################
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.views.generic import ListView
+from django.urls import reverse
+
+
+
+import stripe
+
+
 def index(request):
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
@@ -87,9 +108,6 @@ def userPage(request):
     return render(request, 'profile.html')
 
 
-    
-
-
 @login_required(login_url='login')
 def accountSettings(request):
     customer = request.user.customer
@@ -106,10 +124,43 @@ def accountSettings(request):
     return render(request, 'profile.html', context)
 
 
-
-def progress(request):
-    return render(request, 'progress.html')
+@login_required
+def progress_view(request):
+    user_membership   = get_user_membership(request)
+    user_subscription = get_user_subscription(request)
     
+    context = {
+        'user_membership':user_membership,
+        'user_subscription':user_subscription
+    }
+    
+    return render(request, "progress.html", context)
+
+
+@login_required
+def coutches_view(request):
+    user_membership   = get_user_membership(request)
+    user_subscription = get_user_subscription(request)
+    
+    context = {
+        'user_membership':user_membership,
+        'user_subscription':user_subscription
+    }
+    
+    return render(request, "coutches.html", context)
+    
+  
+@login_required  
+def membership_profile_view(request):
+    user_membership   = get_user_membership(request)
+    user_subscription = get_user_subscription(request)
+    
+    context = {
+        'user_membership':user_membership,
+        'user_subscription':user_subscription
+    }
+    
+    return render(request, "membership_profile_view.html", context)
 
 
 

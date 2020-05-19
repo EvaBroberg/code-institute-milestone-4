@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class="section section-user-membership-profile blue-grey darken-4">
+  <div class="container">
+    <h1>My membership</h1>
+
+    <div>
+      {% if user_subscription != None %}
+
+      <h4>Current Membership: {{ user_membership.membership.membership_type }}</h4>
+      <small>since {{ user_subscription.get_created_date }}</small>
+
+      {% if user_subscription.active != False %}
+      <p>Next payment due: {{ user_subscription.get_next_billing_date }}</p>
+      <a href="">Cancel subscription</a>
+      {% else %}
+      <p>
+        You don't have a membership plan. Join us and let's get pumping!
+        <a href="{% url 'select' %}">subscription plans</a>
+      </p>
+      {% endif %} {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

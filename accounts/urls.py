@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^password-reset/', include(url_reset)),
     # url(r'^user/$', userPage, name='user-page'),
     url(r'^user/$', accountSettings, name='user-page'),
-    url(r'^user/progress/$', progress, name='progress')
+    url(r'^user/progress/$', progress_view, name='progress'),
+    url(r'^user/coutches/$', coutches_view, name='coutches'),
+    url(r'^user/membership/$', membership_profile_view, name='user_membership'),
 ]

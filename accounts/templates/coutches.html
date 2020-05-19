@@ -1,0 +1,15 @@
+{% extends 'profile_base.html' %} {% block page_title %}{{user}}'s profile{% endblock %} {% block coutches_content %}
+
+<div>
+  {% if user_subscription != None %}
+  <h1>HI I AM YOUR COUTCH</h1>
+
+  {% else %}
+
+  <p>
+    You have no coutches assigned yet, pleae upgrade subscription and we will get in touch shortly!
+    <a href="{% url 'select' %}">subscription plans</a>
+  </p>
+
+  {% endif %} {% endblock %}
+</div>
