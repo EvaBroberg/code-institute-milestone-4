@@ -19,10 +19,9 @@
                 {{request.user.customer.name|upper}}</h4>
             <div class="profile-options">
                 <a href="{% url 'progress' %}">PROGRESS</a>
-                <a href="!#">MESSAGES</a>
                 <a href="{% url 'coutches' %}">COUCHES</a>
-                <a href="!#">NEWS</a>
-                <a style="margin-bottom: 63px;" href="{% url 'user_membership' %}">MEMBERSIP</a>
+                <a href="{% url 'post_list' %}">NEWS</a>
+                <a style="margin-bottom: 63px;" href="{% url 'user_membership' %}">ACCOUNT</a>
             </div>
         </div>
 

@@ -10,18 +10,6 @@ from django.urls import reverse
 from .models import Membership, UserMembership, Subscription
 
 import stripe
-
-# def membership_profile_view(request):
-#     user_membership   = get_user_membership(request)
-#     user_subscription = get_user_subscription(request)
-    
-#     context = {
-#         'user_membership':user_membership,
-#         'user_subscription':user_subscription
-#     }
-    
-#     return render(request, "membership_profile_view.html", context)
-
     
 
 def get_user_membership(request):
@@ -135,3 +123,32 @@ def updateTransactionRecords(request, subscription_id):
     messages.info(request, 'Successfully created {} membership'.format(
         selected_membership))
     return redirect(reverse('select'))
+
+
+
+
+@login_required
+def cancelSubscription(request):
+    user_sub = get_user_subscription(request)
+
+    if user_sub.active is False:
+        messages.info(request, "You dont have an active membership")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+    sub = stripe.Subscription.retrieve(user_sub.stripe_subscription_id)
+    sub.delete()
+
+    user_sub.active = False
+    user_sub.save()
+
+    free_membership = Membership.objects.get(membership_type='Free')
+    user_membership = get_user_membership(request)
+    user_membership.membership = free_membership
+    user_membership.save()
+
+    messages.info(
+        request, "Successfully cancelled membership.")
+    # sending an email here
+
+    return redirect(reverse('select'))
+    
