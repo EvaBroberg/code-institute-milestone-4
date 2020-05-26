@@ -1,36 +1,29 @@
-{% extends 'base.html' %} {% load static %} {% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-  //<![CDATA
-  Stripe.publishableKey = '{{ publishable }}';
-  //]]>
-</script>
-
-{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <section style="padding-top: 200px;" class="section section-checkout blue-grey darken-4">
   <div style="padding-left: 100px;" class="row">
     <h3>Payment Details</h3>
     <div class="col s12 m8 blue-grey darken-4">
       <div class="checkout-progress-indicator">
-        <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
-          <div id="credit-card-errors" style="display: none;">
-            <div class="alert-message block-message error" id="stripe-error-message"></div>
-          </div>
-          {% csrf_token %}
-          <div class="form-group col-md-6">
-            {{ order_form }}
-            <div class="form-group col-md-12">
-              <input class="btn btn-primary" id="next_payment_btn" type="submit" value="NEXT" />
-            </div>
-          </div>
+        <div id="collapseStripe" class="wrapper">
+          <form action="." method="post" id="payment-form">
+            {% csrf_token %}
+            <div class="form-row">
+              {{ order_form }} {{ payment_form }}
 
-          <div class="form-group col-md-6">
-            {{ payment_form }}
-            <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Buy" />
-            <div class="form-group col-md-12"></div>
-          </div>
-        </form>
+              <!-- Used to display form errors. -->
+              <div id="card-errors" role="alert"></div>
+            </div>
+
+            <button>Submit Payment</button>
+          </form>
+        </div>
+
+        <div id="stripe-token-handler" class="is-hidden">
+          Success! Got token: <span class="token"></span>
+
+          <input type="text" name="stripe_id" class="form-control" placeholder="None" required="" id="stripeToken" />
+        </div>
       </div>
     </div>
 

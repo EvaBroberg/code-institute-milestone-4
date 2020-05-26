@@ -1,7 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 
-from django.urls import reverse
-
 from django.http import HttpResponse, JsonResponse
 
 from django.contrib.auth.forms import UserCreationForm
@@ -13,7 +11,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import OrderForm, MakePaymentForm
+from .forms import OrderForm, PaymentForm
 
 from django.conf import settings
 from django.utils import timezone
@@ -32,7 +30,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def checkout(request):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
-        payment_form = MakePaymentForm(request.POST)
+        payment_form = PaymentForm(request.POST)
         
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
@@ -48,7 +46,9 @@ def checkout(request):
                 order_line_item.save()
                 
             try:
-                customer = stripe.Charge.create(
+                token = self.request.POST.get('stripeToken')
+                customer = stripe.Customer.create()
+                stripe.Charge.create(
                     amount=int(total * 100),
                     currency="EUR",
                     description=request.user.email,
@@ -73,7 +73,7 @@ def checkout(request):
             messages.error(
                 request, "We were unable to take a payment with that card!")
     else:
-        payment_form = MakePaymentForm()
+        payment_form = PaymentForm()
         order_form = OrderForm()
         
     return render(

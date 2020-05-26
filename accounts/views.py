@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -14,27 +11,9 @@ from .forms import CustomerForm
 from django.http import HttpResponse
 
 from memberships.models import *
-
-
-######################################my added
-from memberships.models import *
 from memberships.views import *
 
-
-
-#########################################
-from django.conf import settings
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-from django.views.generic import ListView
-from django.urls import reverse
-
-
-
-import stripe
 
 
 def index(request):

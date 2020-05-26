@@ -1,7 +1,7 @@
 {% extends 'profile_base.html' %} {% block page_title %}{{user}}'s profile{% endblock %} {% block progress_content %}
 
 <div>
-  {% if user_subscription != None %}
+  {% if user_subscription != None and user_membership_type != 'free'%}
   <div style="display: flex;" class="row">
     <div class="col s12 m8 z-depth-0">
       <div id="chartContainer" style="height: 300px; width: 100%;"></div>

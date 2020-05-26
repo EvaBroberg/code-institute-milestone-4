@@ -151,4 +151,3 @@ def cancelSubscription(request):
     # sending an email here
 
     return redirect(reverse('select'))
-    
