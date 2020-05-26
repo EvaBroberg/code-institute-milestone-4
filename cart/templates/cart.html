@@ -1,107 +1,90 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block title %}Cart{% endblock%} {% block content %}
 
-{% load static %}
-
-
-{% block content %}
-
-<section class="section section-cart blue-grey darken-4">
-    <div class="container" style="padding-top: 150px;">
-        <div class="desktop-line row hide-on-small-only">
-            <div class="col m8" style="margin-bottom: 10px; padding-left: 0;">
-                <p class="flow-text white-text">Shopping Cart</p>
-            </div>
-            <div class="col m4" style="text-align:right;">
-                <p class="white-text" style="font-size: 1.1rem;">Price</p>
-            </div>
-        </div>
-        <hr style="margin-bottom:30px;">
-
-        <!-- <div class="row"> -->
-        {% for item in cart_items %}
-        <div class="row">
-            <div class="col s12 l3 product-img-container">
-                <img src="{{MEDIA_URL}}{{ item.product.image }}" class="responsive-img" />
-            </div>
-            <div class="description-col col s12 l5">
-                <p class=" product-name flow-text white-text">{{item.product.name}}</p>
-                <form class="form-inline" method="POST" action="{% url 'adjust_cart' item.id %}" id="qtyForm">
-                    {% csrf_token %}
-                    <div class="form-group ">
-                        <div class="quantity qty-container">
-                            <p>Qty:</p>
-                            <input id="select-qty" class="select-qty" type="number" name="quantity" min="0" max="999"
-                                value="{{ item.quantity }}">
-                            <div class="quantity-nav">
-                                <div class="quantity-up">
-                                    <i class="material-icons white-text">arrow_drop_up</i>
-                                </div>
-                                <div class="quantity-down">
-                                    <i class="material-icons white-text">arrow_drop_down</i>
-                                </div>
-                            </div>
-                            <button class="quantity-none">Delete</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="item-price col s12 l4">
-                <p>£ {{ item.product.price }}</p>
-            </div>
-        </div>
-        {% endfor %}
-
-        <!-- </div> -->
-        <div class="row">
-            <div class="col s12">
-                <p>Subtotal:</p>
-                <p>£ {{ total }}</p>
-                <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-            </div>
-
-        </div>
-
+<section style="padding-top: 150px; min-height: 80vh;" class="section section-shopping-cart blue-grey darken-4">
+  <div class="container">
+    <div class="col m8" style="margin-bottom: 10px; padding-left: 0;">
+      <p class="flow-text white-text">Shopping Cart</p>
+      <hr />
     </div>
+    {% if not cart_items %}
+    <div>
+      <h5 class="center-align">Your Shopping Cart is empty</h5>
+      <a href="{% url 'shop' %}">return to shop</a>
+    </div>
+    {% else %}
+    <div class="row">
+      <div class="col s12 m8">
+        <table style="background: #455a6430;" class="">
+          {% for cart_item in cart_items %}
+          <tr>
+            <td>
+              <a href="cart_item.product.get_url">
+                <img src="{{ cart_item.product.image.url }}" width="200" height="200" alt="" />
+              </a>
+            </td>
+            <td>
+              {{cart_item.product.name}}
+              <br />
+
+              Unit Price: £{{cart_item.product.price}}
+              <br />
+              Qty: {{cart_item.quantity}} x £{{cart_item.product.price}}
+            </td>
+            <td>
+              £{{cart_item.sub_total}}
+            </td>
+            {% if cart_item.quantity < cart_item.product.stock %}
+            <td>
+              <a href="{% url 'add_cart' cart_item.product.id %}"><i class="material-icons white-text">arrow_drop_up</i></a>
+              <a href="{% url 'cart_remove' cart_item.product.id %}"><i class="material-icons white-text">arrow_drop_down</i></a>
+              <a href="{% url 'cart_delete' cart_item.product.id %}"><i class="material-icons white-text">delete</i></a>
+            </td>
+            {% else %}
+            <a href="{% url 'cart_remove' cart_item.product.id %}"><i class="material-icons">remove</i></a>
+            <a href="{% url 'cart_delete' cart_item.product.id %}"><i class="material-icons">delete</i></a>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="col s12 m4">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                Proceed with the payment
+              </td>
+            </tr>
+            <tr>
+              <td>
+                total: £{{total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <form method="POST">
+            {% csrf_token %}
+            <script
+              src="https://checkout.stripe.com/checkout.js"
+              class="stripe-button"
+              data-label="Checkout"
+              data-key="{{data_key}}"
+              data-amount="{{stripe_total}}"
+              data-name="uGoGirl"
+              data-description="{{description}}"
+              data-locate="auto"
+              data-currency="gbp"
+              data-shipping-address="true"
+              data-billing-address="true"
+            ></script>
+            <a style="display: block;" href="{% url 'shop' %}" class="back-to-shop">Continue Shopping</a>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
 </section>
-{% endblock %}
 
-
-
-
-
-
-
-
-<div class="row row-flex">
-    {% for item in cart_items %}
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 md-4 display panel panel-display">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}}')"></div>
-        <div class="caption">
-            <h3>{{ item.product.name }}</h3>
-            <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
-            <p>
-                <form class="form-inline" method="POST" action="{% url 'adjust_cart' item.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input type="number" name="quantity" min="0" max="999">
-                            <div class="input-group-addon">{{ item.quantity }}</div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>Edit</button>
-                </form>
-            </p>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-<div class="row">
-    <p>Total amount</p>
-    <p>
-        <£ {{ total }}</p>
-            <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-</div>
+{% endblock%}

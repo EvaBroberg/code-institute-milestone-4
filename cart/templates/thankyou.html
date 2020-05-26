@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Thank You{% endblock%} {% block content %}
+
+<div class="container">
+  <h1>Thank you for shopping with us</h1>
+  <p>Your order id is: {{ customer_order.id }}</p>
+</div>
+
+{% endblock%}

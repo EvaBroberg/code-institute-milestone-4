@@ -1,8 +1,9 @@
-from django.conf.urls import url
-from .views import view_cart, add_to_cart, adjust_cart
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    url('^$', view_cart, name='view_cart'),
-    url('^add/(?P<id>\d+)', add_to_cart, name='add_to_cart'),
-    url('^adjust/(?P<id>\d+)',adjust_cart, name='adjust_cart'),
+    path('add/<int:product_id>', views.add_cart, name='add_cart'),
+    path('remove/<int:product_id>', views.cart_remove, name='cart_remove'),
+    path('delete/<int:product_id>', views.cart_delete, name='cart_delete'),
+    path('thankyou/<int:order_id>', views.thank_you_page, name='thank_you_page'),
 ]
