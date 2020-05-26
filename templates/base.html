@@ -50,7 +50,7 @@
               <a href="{% url 'shop' %}">Shop</a>
             </li>
             <li {% if request.resolver_match.url_name == 'select' %}class="active" {% endif %}>
-              <a href="{% url 'select' %}">Plans</a>
+              <a href="{% url 'select' %}">Memberships</a>
             </li>
             <li>
               <a href="#about">About</a>
@@ -63,13 +63,13 @@
             </li>
             <li>
               <a class='dropdown-trigger' href='#' data-target='dropdown1'> <i style="font-size: 2rem;" class="material-icons white-text">person</i></a>
-              <ul id='dropdown1' class='dropdown-content'>
+              <ul id='dropdown1' class='dropdown-content blue-grey lignten-2'>
                 {% if user.is_authenticated %}
-                <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
-                <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
+                <li href="{% url 'index' %}" i><a class="white-text" href="{% url 'logout' %}">Logout</a></li>
+                <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a class="white-text" href="{% url 'user-page' %}">Profile</a></li>
                 {% else %}
-                <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
-                <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
+                <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a class="white-text" href="{% url 'login' %}">Login</a></li>
+                <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a class="white-text" href="{% url 'register' %}">Register</a></li>
                 {% endif %}
               </ul>
             </li>
@@ -89,31 +89,38 @@
   
   
   <!-- Sidenav -->
-  <div>
-    <ul class="sidenav" id="mobile-nav">
-      <h4 class="blue-grey-text darken-3 center">uGOgirl</h4>
+  <div >
+    <ul class="sidenav blue-grey lighten-1" id="mobile-nav">
+      <h4 style="font-family: 'Trade Winds', cursive;" class="darken-3 center white-text">uGOgirl</h4>
       <li>
-        <div class="divider"></div>
+        <div style="margin-bottom: 20px;" class="divider"></div>
       </li>
       <li>
         <a href="{% url 'shop' %}">Shop</a>
+      </li>
+      <li {% if request.resolver_match.url_name == 'select' %}class="active" {% endif %}>
+        <a href="{% url 'select' %}">Memberships</a>
       </li>
       <li>
         <a href="#about">About</a>
       </li>
       <li>
-        <a class="white-text" href="{% url 'post_list' %}">News</a>
+        <a href="{% url 'post_list' %}">News</a>
       </li>
       <li>
         <a href="#contact">Contact</a>
       </li>
-      {% if user.is_authenticated %}
-      <lhref="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
-      <li><a href="{% url 'user-page' %}">Profile</a></li>
-      {% else %}
-      <li><a href="{% url 'login' %}">Login</a></li>
-      <li><a href="{% url 'register' %}">Register</a></li>
-      {% endif %}
+      <li>
+        
+          {% if user.is_authenticated %}
+          <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
+          <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
+          {% else %}
+          <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
+          <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+       
+      </li>
     </ul>
   </div>
     
@@ -137,12 +144,12 @@
     <div class="container">
       <div class="row">
         <div class="col l3 s12">
-          <h5>Location</h5>
+          <h5 class="footer-title">Location</h5>
           <p>uGOgirl, LTD</p>
           <p>123 Some Rd, London UK</p>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Links</h5>
+          <h5 class="white-text footer-title">Links</h5>
           <ul>
             <li>
               <a class="white-text" href="#home">Home</a>
@@ -151,7 +158,7 @@
               <a class="white-text" href="#about">About</a>
             </li>
             <li>
-              <a class="white-text" href="#plans">Plans</a>
+              <a class="white-text" href="#plans">Memberships</a>
             </li>
             <li>
               <a class="white-text" href="{% url 'post_list' %}">News</a>
@@ -222,6 +229,7 @@
           $('#msg').remove();
         }
       }, 5000)
+
     </script>
     
     

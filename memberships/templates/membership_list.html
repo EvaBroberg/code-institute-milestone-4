@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<section id="plans" class="section section-plans blue-grey darken-4 white-text center scrollspy box">
+<section style="padding-top: 300px !important;" id="plans" class="section section-plans blue-grey darken-4 white-text center scrollspy box">
   <div class="container">
     <h2 style="color: #cfd8dc;" class="choose-plan-title">CHOOSE A PLAN</h2>
     <div class="row">
@@ -17,12 +17,17 @@
                 <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
                 <li class="blue-grey-text">Lorem ipsum dolor sit amet.</li>
               </ul>
-
               <form method="POST" action="{% url 'select' %}">
                 {% csrf_token %} {% if object.membership_type != current_membership %}
                 <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
-                <!-- <a href="{% url 'select' %}" class="btn right-btn" role="button">Buy now</a> -->
-                <button>select</button>
+                <!-- <button>select</button> -->
+                <button
+                  style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: bold; letter-spacing: 0.5px;"
+                  class="btn right-btn"
+                  role="button"
+                >
+                  Select
+                </button>
                 {% else %}
                 <a href="#starter" class="left-btn btn modal-trigger">See plan</a>
                 <a class="btn right-btn disabled" role="button">Bought</a>
