@@ -13,34 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
-
-from django.contrib.auth import views
 
 from accounts.views import index
-from accounts import urls as urls_accounts
-from products import urls as urls_products
-from cart import urls as urls_cart
-from search import urls as urls_search
-from blog import urls as urls_blog
-from memberships import urls as urls_memberships
-from checkout import urls as urls_checkout
-from products.views import product_list_view
-from django.views import static
-from .settings import MEDIA_ROOT
+
+
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$',index, name='index'),
-    url(r'^products/', include(urls_products)),
-    url(r'^accounts/', include(urls_accounts)),
-    url(r'^products/', include(urls_products)),
-    url(r'^cart/', include(urls_cart)),
-    url(r'^checkout/', include(urls_checkout)),
-    url(r'^search/', include(urls_search)),
-    url(r'^blog/',include(urls_blog)),
-    url(r'^memberships/', include(urls_memberships)),
-  
-    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    path('admin/', admin.site.urls),
+    path('', index , name='index'),
+    path('accounts/', include('accounts.urls')),
+    path('cart/', include('cart.urls')),
+    path('products/', include('products.urls')),
+    path('checkout/', include('checkout.urls')),
+    path('blog/',include('blog.urls')),
+    path('memberships/', include('memberships.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

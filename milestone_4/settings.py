@@ -47,10 +47,10 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'tags',
     'materializeform',
     'blog',
     'memberships',
+    'orders'
 ]
 
 MIDDLEWARE = [
@@ -78,7 +78,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'cart.context.cart_contents',
+                'products.context_processors.menu_links',
+                'checkout.context_processors.counter',
+                
             ],
         },
     },
