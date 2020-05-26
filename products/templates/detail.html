@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+<!-- {% extends 'base.html' %} {% block content %}
 
 <section class="section section-product-detail blue-grey darken-4">
   <div class="container">
@@ -47,4 +47,48 @@
   </div>
 </section>
 
-{% endblock %}
+{% endblock %} -->
+
+{% extends 'base.html' %} {% load static %} {% block title %}Product{% endblock%} {% block content %}
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col s12 m3">
+      <img class="responsive-img" src="{{product.image.url}}" alt="" />
+    </div>
+    <div class="col s12 m9">
+      <h1>{{product.name}}</h1>
+      <p>£{{product.price}}</p>
+      <p>
+        {{product.description}}
+      </p>
+      {% if product.stock <= 0 %}
+      <p>OUT OF STOCK</p>
+      {% else %}
+      <a href="{% url 'add_cart' product.id %}">Add to cart</a>
+      {%endif%}
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 m3">
+      <img class="responsive-img" src="{{product.image.url}}" alt="" />
+    </div>
+    <div class="col s12 m9">
+      <h1>{{product.name}}</h1>
+      <p>£{{product.price}}</p>
+      <p>
+        {{product.description}}
+      </p>
+      {% if product.stock <= 0 %}
+      <p>OUT OF STOCK</p>
+      {% else %}
+      <a href="{% url 'add_cart' product.id %}">Add to cart</a>
+      {%endif%}
+    </div>
+  </div>
+</div>
+
+{% endblock%}

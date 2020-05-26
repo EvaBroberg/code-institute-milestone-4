@@ -118,3 +118,51 @@ button#delete-product {
   margin: 0 0 30px 0;
   line-height: 1.9rem;
 }
+
+.cart-items {
+  position: relative;
+}
+
+.cart-items span {
+  position: absolute;
+  top: 27px;
+  right: -10px;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+/* checkout buttons */
+
+button.stripe-button-el {
+  border-radius: 0;
+  width: 50%;
+  background-image: none;
+  background: #455a64;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+
+button.stripe-button-el span {
+  background-image: none;
+  background: #455a64;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.back-to-shop {
+  border-radius: 0;
+  width: 50%;
+  background: #455a64;
+  padding: 15px 0px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: white;
+  letter-spacing: 1px;
+  font-weight: normal;
+  text-transform: uppercase;
+}

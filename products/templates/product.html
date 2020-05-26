@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- Slider -->
+<div class="slider">
+  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
+  <ul class="slides shop-slides">
+    <li>
+      <img class="slider-image" src="/static/img/equipment.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment2.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment3.jpg" />
+    </li>
+  </ul>
+</div>
+
+<!-- Shopping Nav -->
+<section class="section-boxes center">
+  <div class="row">
+    <div class="col s12 m6 l3 blue-grey darken-3 white-text box">
+      <h4><a href="#equipment" class="white-text">Equipment</a></h4>
+    </div>
+    <div class="col s12 m6 l3 blue-grey darken-2 white-text box">
+      <h4><a href="#apparel" class="white-text">Apparel</a></h4>
+    </div>
+    <div class="col s12 m6 l3 blue-grey darken-1 white-text box">
+      <h4><a href="#performance" class="white-text">Performance</a></h4>
+    </div>
+    <div class="col s12 m6 l3 blue-grey white-text box">
+      <h4><a href="#accessories" class="white-text">Accessories</a></h4>
+    </div>
+  </div>
+</section>
+
+<!-- Equipment -->
+<section id="equipment" class="section section-plans scrollspy box">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m3">
+        <img class="responsive-img" src="{{product.image.url}}" alt="" />
+      </div>
+      <div class="col s12 m9">
+        <h1>{{product.name}}</h1>
+        <p>£{{product.price}}</p>
+        <p>
+          {{product.description}}
+        </p>
+        {% if product.stock <= 0 %}
+        <p>OUT OF STOCK</p>
+        {% else %}
+        <a href="{% url 'add_cart' product.id %}">Add to cart</a>
+        {%endif%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -8,21 +8,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  
   {% block head_content %}{%endblock%}
-
+  
   <title>{% block page_title %}{% endblock %} UgoGirl </title>
-
+  
   <link rel="shortcut icon" href="">
-
+  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
+  
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-
+  
   <link type="text/css" href="css/materialize.min.css" media="screen,projection" />
-
+  
   <link rel="stylesheet" href="{% static 'css/materialize.css' %}" />
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registration_login.css' %}">
@@ -33,31 +33,25 @@
   <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
   <link rel="stylesheet" href="{% static 'css/product_list.css' %}" />
   <link rel="stylesheet" href="{% static 'css/checkout.css' %}" />
-
+  
 </head>
 
 <body id="home" class="scrollspy">
+  
   <div class="navbar-fixed">
     <nav class="transparent z-depth-0">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="{% url 'index' %}" class="brand-logo"><img class="main-logo" src="/static/img/logo.png" alt=""> <span
-              class="logo-text">uGOgirl</span></a>
-          <a href="#!" data-target="mobile-nav" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-          </a>
+
+          <a href="{% url 'index' %}" class="brand-logo"><img class="main-logo" src="/static/img/logo.png" alt=""><span class="logo-text">uGOgirl</span></a>
+          <a href="#!" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li {% if request.resolver_match.url_name == 'products' %}class="active" {% endif %}>
-              <a href="{% url 'products' %}">Shop</a>
+              <a href="{% url 'shop' %}">Shop</a>
             </li>
-
-
             <li {% if request.resolver_match.url_name == 'select' %}class="active" {% endif %}>
               <a href="{% url 'select' %}">Plans</a>
             </li>
-
-
-
             <li>
               <a href="#about">About</a>
             </li>
@@ -67,90 +61,77 @@
             <li>
               <a href="#contact">Contact</a>
             </li>
-           
             <li>
-              <a href="{% url 'view_cart' %}">
-                <i class="material-icons white-text">shopping_cart</i>
-              </a>
-            </li>
-            <li>{% if product_count > 0 %}
-              <span class="badge white-text">{{ product_count }}</span>
-              {% endif %}
-            </li>
-
-
-
-
-
-              <li>
-
+              <a class='dropdown-trigger' href='#' data-target='dropdown1'> <i style="font-size: 2rem;" class="material-icons white-text">person</i></a>
+              <ul id='dropdown1' class='dropdown-content'>
                 {% if user.is_authenticated %}
-                <a class='dropdown-trigger' href='#' data-target='dropdown1'> <i class="material-icons white-text">person</i></a>
-    
-             
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
-                  <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
+                <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
+                <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
                 {% else %}
-                  <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
-                  <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
-                </ul>
-                
+                <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
+                <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
                 {% endif %}
-    
-              </li>
-
-
-
-
-
-
-
-              
+              </ul>
+            </li>
+            <li>
+              <div class="cart-items">
+                <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0 badge">{{item_count}}</span>
+                <a href="{% url 'checkout' %}"><i class="material-icons">shopping_cart</i></a>
+              </div>
+            </li>
           </ul>
+
+
         </div>
       </div>
     </nav>
   </div>
-
-
+  
+  
   <!-- Sidenav -->
-  <ul class="sidenav" id="mobile-nav">
-    <h4 class="blue-grey-text darken-3 center">uGOgirl</h4>
-    <li>
-      <div class="divider"></div>
-    </li>
-    <li>
-      <a href="{% url 'products' %}">Shop</a>
-    </li>
-    <li>
-      <a href="#about">About</a>
-    </li>
-    <li>
-      <a class="white-text" href="{% url 'post_list' %}">News</a>
-    </li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-    {% if user.is_authenticated %}
-    <lhref="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
+  <div>
+    <ul class="sidenav" id="mobile-nav">
+      <h4 class="blue-grey-text darken-3 center">uGOgirl</h4>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li>
+        <a href="{% url 'shop' %}">Shop</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a class="white-text" href="{% url 'post_list' %}">News</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+      {% if user.is_authenticated %}
+      <lhref="{% url 'index' %}"i><a href="{% url 'logout' %}">Logout</a></li>
       <li><a href="{% url 'user-page' %}">Profile</a></li>
       {% else %}
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'register' %}">Register</a></li>
       {% endif %}
-  </ul>
-
-  {% if messages %}
-  {% for message in messages %}
-  <div>{{ message }}</div>
-  {% endfor %}
-  {% endif %}
-
+    </ul>
+  </div>
+    
+    <div>
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+ 
+  
   {% block content %}
   {% endblock %}
-
-
+  
+  
   <!-- Footer -->
   <footer class="page-footer blue-grey darken-3">
     <div class="container">
@@ -187,63 +168,70 @@
         uGOgirl © <span id="year"></span>
         <a class="grey-text text-lighten-4 right" href="#!"> <i class="material-icons left">keyboard_arrow_up</i> Back
           to Top </a>
+        </div>
       </div>
-    </div>
-  </footer>
-
-
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
-  <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
-  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-
-
-
-  <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav();
-
-      $('.scrollspy').scrollSpy();
-
-      var modalElems = document.querySelectorAll('.modal');
-      var modalInstances = M.Modal.init(modalElems, {
+    </footer>
+    
+    
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    
+    
+    
+    <script>
+      $(document).ready(function () {
+        $('.sidenav').sidenav();
+        
+        $('.scrollspy').scrollSpy();
+        
+        var modalElems = document.querySelectorAll('.modal');
+        var modalInstances = M.Modal.init(modalElems, {
+        });
+        
+        $('.main-text').fadeIn(1500).removeClass('hidden');
+        
+        $('.slider').slider({
+          indicators: false,
+          height: 700,
+          transition: 500,
+          interval: 6000
+        });
+        
+        $(window).scroll(function () {
+          if (window.pageYOffset > 1000 - $(window).height()) {
+            $('nav').removeClass('transparent z-depth-0').addClass('blue-grey darken-3 z-depth-4');
+          } else {
+            $('nav').addClass('transparent z-depth-0').removeClass('blue-grey darken-3 z-depth-4');
+          }
+        });
+        
+        document.getElementById('year').innerHTML = new Date().getFullYear();
       });
-
-      $('.main-text').fadeIn(1500).removeClass('hidden');
-
-      $('.slider').slider({
-        indicators: false,
-        height: 700,
-        transition: 500,
-        interval: 6000
-      });
-
-      $(window).scroll(function () {
-        if (window.pageYOffset > 1000 - $(window).height()) {
-          $('nav').removeClass('transparent z-depth-0').addClass('blue-grey darken-3 z-depth-4');
-        } else {
-          $('nav').addClass('transparent z-depth-0').removeClass('blue-grey darken-3 z-depth-4');
+      
+      
+      
+      $('.dropdown-trigger').dropdown();
+      
+      
+      setTimeout(function(){
+        if ($('#msg').length > 0) {
+          $('#msg').remove();
         }
-      });
-
-      document.getElementById('year').innerHTML = new Date().getFullYear();
-    });
-
-
-
-    $('.dropdown-trigger').dropdown();
-  </script>
-
-
-  <script src="https://js.stripe.com/v3/"></script>
-  <!-- <script type="text/javascript" src="canvasjs.min.js"></script> -->
- 
-  <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/membership_payment.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
-</body>
-
-</html>
+      }, 5000)
+    </script>
+    
+    
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- <script type="text/javascript" src="canvasjs.min.js"></script> -->
+    
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/membership_payment.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+  </body>
+  
+  </html>

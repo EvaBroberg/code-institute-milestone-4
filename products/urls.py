@@ -1,8 +1,8 @@
-
-from django.conf.urls import url, include
-from .views import product_list_view, product_detail_view
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    url(r'^(?P<pk>\d+)/$', product_detail_view, name='product_detail'),
-    url(r'^$', product_list_view, name='products')  
+    path('', views.shop, name='shop'),
+    path('category/<slug:category_slug>', views.shop, name='products_by_category'),
+    path('category/<slug:category_slug>/<slug:product_slug>', views.productPage, name='product_detail'),
 ]

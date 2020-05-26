@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% load static %} {% block title %}shop {% endblock%} {% block content %}
+
+<!-- Slider -->
+<div class="slider">
+  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
+  <ul class="slides shop-slides">
+    <li>
+      <img class="slider-image" src="/static/img/equipment.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment2.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment3.jpg" />
+    </li>
+  </ul>
+</div>
+
+
+
+<!-- search -->
+{% include "search.html" %}
+
+
+
+<section id="equipment" class="section section-plans scrollspy box blue-grey darken-4">
+  <div class="container">
+    <div class="row">
+      {% for product in products %}
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image">
+            <a href="{{ product.get_url }}">
+              <img src="{{product.image.url}}" alt="{{product.name}}" />
+            </a>
+          </div>
+
+
+          <div class="card-action">
+            <a href="{{ product.get_url }}">
+          
+
+
+
+
+          <div class="card-content">
+            <span class="card-title black-text">{{product.name}}</span>
+            <p class=" black-text">
+              {{product.description}}
+            </p>
+            <p class=" black-text">
+              £{{product.price}}
+            </p>
+          </div>
+
+        </a>
+          </div>
+
+
+
+
+          
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+    {% endblock%}
+
+    <!-- Product list -->
+
+    <!-- 
+    <div class="container">
+      <div class="row">
+        {% for product in products %}
+        <div class="col s12 m3">
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ product.get_url }}">
+                <img src="{{product.image.url}}" alt="{{product.name}}" />
+              </a>
+            </div>
+            <div class="card-content">
+              <span class="card-title black-text">{{product.name}}</span>
+              <p>
+                {{product.description}}
+              </p>
+              <p>
+                £{{product.price}}
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div> -->
+  </div>
+</section>
