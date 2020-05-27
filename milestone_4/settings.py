@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'materializeform',
     'blog',
     'memberships',
     'orders',
