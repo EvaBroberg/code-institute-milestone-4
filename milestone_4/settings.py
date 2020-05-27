@@ -12,11 +12,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import env
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_DIR  = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -102,6 +103,10 @@ DATABASES = {
     }
 }
 
+# DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -153,13 +158,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL       = '/static/'
 STATICFILES_DIRS = STATIC_DIR,
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
+MEDIA_URL  = '/media/'
+
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY      = os.getenv('STRIPE_SECRET_KEY')
 
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -167,8 +174,9 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 LOGIN_REDIRECT_URL = '/'
 
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_mad7JiUbrREpfoByUSybHG1g007YSkoeIm'
-STRIPE_SECRET_KEY = 'sk_test_OCu5QnGM8lYQBOG0BsQHtNHt00IKoPzlw6'
+
+
+
 
 
 
