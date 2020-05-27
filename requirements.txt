@@ -8,6 +8,6 @@ django-materialize==1.0.1a2
 django-materialize-form==0.1.1
 Pillow==7.0.0
 stripe==2.47.0
-
+env==0.1.0
 
 
