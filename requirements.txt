@@ -21,4 +21,11 @@ urllib3==1.25.8
 Pillow==7.0.0
 sqlparse==0.3.1
 stripe==2.47.0
+env==0.1.0
+
+
+
+
+
+
 
