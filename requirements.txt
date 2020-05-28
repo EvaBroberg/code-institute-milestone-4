@@ -18,6 +18,7 @@ django-fontawesome==1.0
 django-forms-bootstrap==3.1.0
 django-materialize==1.0.1a2
 django-materialize-form==0.1.1
+gunicorn==19.10.0
 
 
 Faker==4.0.1
