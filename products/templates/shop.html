@@ -16,12 +16,8 @@
   </ul>
 </div>
 
-
-
 <!-- search -->
 {% include "search.html" %}
-
-
 
 <section id="equipment" class="section section-plans scrollspy box blue-grey darken-4">
   <div class="container">
@@ -31,35 +27,25 @@
         <div class="card">
           <div class="card-image">
             <a href="{{ product.get_url }}">
-              <img src="{{product.image.url}}" alt="{{product.name}}" />
+              {% if product.image %}
+              <img src="{{ product.image.url }}" />
+              {% endif %}
             </a>
           </div>
 
-
           <div class="card-action">
             <a href="{{ product.get_url }}">
-          
-
-
-
-
-          <div class="card-content">
-            <span class="card-title black-text">{{product.name}}</span>
-            <p class=" black-text">
-              {{product.description}}
-            </p>
-            <p class=" black-text">
-              £{{product.price}}
-            </p>
+              <div class="card-content">
+                <span class="card-title black-text">{{product.name}}</span>
+                <p class="black-text">
+                  {{product.description}}
+                </p>
+                <p class="black-text">
+                  £{{product.price}}
+                </p>
+              </div>
+            </a>
           </div>
-
-        </a>
-          </div>
-
-
-
-
-          
         </div>
       </div>
       {% endfor %}
@@ -67,11 +53,9 @@
   </div>
 </section>
 
-    {% endblock%}
-
-    <!-- Product list -->
-
-    <!-- 
+<!-- Product list -->
+<!-- 
+    
     <div class="container">
       <div class="row">
         {% for product in products %}
@@ -98,6 +82,8 @@
         </div>
         {% endfor %}
       </div>
-    </div> -->
+    </div>
   </div>
-</section>
+</section> -->
+
+{% endblock%}

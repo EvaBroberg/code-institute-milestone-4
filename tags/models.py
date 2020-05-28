@@ -4,8 +4,8 @@ from django.urls import reverse
 from products.models import Product
 
 class Tag(models.Model):
-    title    = models.CharField(max_length=120)
-    products = models.ManyToManyField(Product, blank=True)
+    # title    = models.CharField(max_length=120)
+    # products = models.ManyToManyField(Product, blank=True)
  
 
     def __str__(self):
