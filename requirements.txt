@@ -38,7 +38,6 @@ jmespath==0.10.0
 libsass==0.19.4
 more-itertools==8.2.0
 Pillow==7.0.0
-pkg-resources
 playsound==1.2.2
 psycopg2==2.8.5
 psycopg2-binary==2.8.5
