@@ -1,89 +1,30 @@
 {% extends 'base.html' %} {% load static %} {% block title %}shop {% endblock%} {% block content %}
 
-<!-- Slider -->
-<div class="slider">
-  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
-  <ul class="slides shop-slides">
-    <li>
-      <img class="slider-image" src="/static/img/equipment.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment2.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment3.jpg" />
-    </li>
-  </ul>
-</div>
-
-<!-- search -->
-{% include "search.html" %}
-
-<section id="equipment" class="section section-plans scrollspy box blue-grey darken-4">
+<div style="padding-top: 200px;" class="section section-products blue-grey darken-4">
   <div class="container">
     <div class="row">
       {% for product in products %}
       <div class="col s12 m3">
         <div class="card">
           <div class="card-image">
-            <a href="{{ product.get_url }}">
-              {% if product.image %}
-              <img src="{{ product.image.url }}" />
-              {% endif %}
-            </a>
-          </div>
+            {% if product.image %}
+            <img src="{{ product.image.url }}" />
+            {% endif %}
 
-          <div class="card-action">
-            <a href="{{ product.get_url }}">
-              <div class="card-content">
-                <span class="card-title black-text">{{product.name}}</span>
-                <p class="black-text">
-                  {{product.description}}
-                </p>
-                <p class="black-text">
-                  £{{product.price}}
-                </p>
-              </div>
-            </a>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <span class="card-title">{{product.name}}</span>
+            <p class="black-text">
+              I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use
+              effectively.
+            </p>
           </div>
         </div>
       </div>
-      {% endfor %}
+      {%endfor%}
     </div>
   </div>
-</section>
-
-<!-- Product list -->
-<!-- 
-    
-    <div class="container">
-      <div class="row">
-        {% for product in products %}
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ product.get_url }}">
-                <img src="{{product.image.url}}" alt="{{product.name}}" />
-              </a>
-            </div>
-            <div class="card-content">
-              <span class="card-title black-text">{{product.name}}</span>
-              <p>
-                {{product.description}}
-              </p>
-              <p>
-                £{{product.price}}
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section> -->
+</div>
 
 {% endblock%}

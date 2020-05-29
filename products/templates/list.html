@@ -2,8 +2,7 @@
 
 <!-- Slider -->
 <div class="slider">
-  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE
-    YOUR LIFE!</h2>
+  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
   <ul class="slides shop-slides">
     <li>
       <img class="slider-image" src="/static/img/equipment.jpg" />
@@ -46,21 +45,19 @@
 
       <div style="flex: 1;" class="">
         <a style="color: #607d8b;" href="{{product.get_absolute_url}}">
-          <div style="    margin: 0.5rem 1rem 1rem 0!important;" class="card z-depth-0">
+          <div style="margin: 0.5rem 1rem 1rem 0 !important;" class="card z-depth-0">
             <div class="card-image product-list-card-image">
+              {% if product.image %}
               <img src="{{MEDIA_URL}}{{ product.image }}" />
-
+              {%endif%}
             </div>
-            <div style="padding: 15px 0!important;" class="card-content blue-grey darken-4">
-              <span class="card-title">{{ product.name }}
-              </span>
+            <div style="padding: 15px 0 !important;" class="card-content blue-grey darken-4">
+              <span class="card-title">{{ product.name }} </span>
               <p class="product-description white-text">{{ product.description|truncatewords:20 }}</p>
               <h5 style="padding-top: 15px;" class="white-text">£ {{ product.price }}</h5>
-
             </div>
           </div>
         </a>
-
       </div>
 
       {% endfor %}

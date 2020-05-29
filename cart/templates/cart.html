@@ -19,7 +19,9 @@
           <tr>
             <td>
               <a href="cart_item.product.get_url">
+                {% if product.image %}
                 <img src="{{ cart_item.product.image.url }}" width="200" height="200" alt="" />
+                {% endif %}
               </a>
             </td>
             <td>

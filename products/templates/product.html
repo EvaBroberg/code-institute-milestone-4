@@ -39,7 +39,9 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m3">
+        {% if product.image %}
         <img class="responsive-img" src="{{product.image.url}}" alt="" />
+        {% endif %}
       </div>
       <div class="col s12 m9">
         <h1>{{product.name}}</h1>
@@ -58,3 +60,64 @@
 </section>
 
 {% endblock %}
+
+<!-- transffer to shop -->
+
+<!-- Slider -->
+<!-- <div class="slider">
+  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
+  <ul class="slides shop-slides">
+    <li>
+      <img class="slider-image" src="/static/img/equipment.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment2.jpg" />
+    </li>
+    <li>
+      <img class="slider-image" src="/static/img/equipment3.jpg" />
+    </li>
+  </ul>
+</div> -->
+
+<section class="section section-search">
+  <!-- search -->
+  {% include "search.html" %}
+</section>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h1 class="center-align">All products</h1>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="row">
+    {% for product in products %}
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <a href="{{ product.get_url }}">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" />
+            {% endif %}
+          </a>
+        </div>
+        <div class="card-content">
+          <span class="card-title black-text">{{product.name}}</span>
+          <p>
+            {{product.description}}
+          </p>
+          <p>
+            £{{product.price}}
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div> -->
