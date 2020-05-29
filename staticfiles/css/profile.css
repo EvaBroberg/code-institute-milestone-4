@@ -1,0 +1,126 @@
+.edit-profile {
+  background-color: transparent;
+}
+
+.user-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.user-image-holder {
+  width: 200px;
+  height: 200px;
+  background: #b0bec5;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  animation: pulse 1.6s infinite;
+  contain: content;
+}
+
+.user-image-holder img {
+  height: 100%;
+}
+
+/* progress */
+
+.activity-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.activity {
+  margin-top: 0;
+  width: 26vw;
+  display: flex;
+  justify-content: center;
+}
+
+.activity h5 {
+  text-transform: capitalize;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(176, 190, 197, 0.85);
+  }
+
+  70% {
+    box-shadow: 0 0 0 2em rgba(176, 190, 197, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(176, 190, 197, 0);
+  }
+}
+
+.profile-content {
+  position: relative;
+}
+
+.edit-profile-btn {
+  position: absolute;
+  height: 20vh;
+  width: 3vw;
+  left: 0;
+  top: 270px;
+}
+
+.profile-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-options a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  margin: 20px 0px;
+  font-weight: 600;
+  transition: 0.3s linear;
+  letter-spacing: 3.5px;
+}
+
+.profile-options a:hover {
+  color: #b0bec5;
+  font-size: 1.01em;
+}
+
+.update-profile-btn {
+  margin-top: 30px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.progress-cards-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-image-title-wrapper {
+  position: relative;
+}
+
+.profile-title {
+  position: absolute;
+  top: 0;
+  left: -5.6vw;
+}
+
+.profile-title h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 8vw;
+  line-height: 1em;
+  margin: 0;
+}
+
+.update-info-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0!important;
+}
+

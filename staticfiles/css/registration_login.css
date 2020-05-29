@@ -1,0 +1,73 @@
+.form-wrapper {
+  padding-top: 70px;
+}
+
+.section-signup {
+  padding-top: 100px;
+}
+
+.section-signup {
+  background: url(../img/img9.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  min-height: 600px;
+  color: #fff;
+  position: relative;
+}
+
+.btn-extend {
+  display: block;
+  width: 100%;
+}
+
+span.helptext {
+  display: none !important;
+}
+
+label {
+  font-size: 1rem;
+}
+
+.input-field {
+  padding: 5px 20px 5px 20px;
+}
+
+.login-title {
+  font-family: 'Heebo', sans-serif;
+  font-size: 10vw;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.under-text {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.under-auth {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.under-auth a {
+  padding-left: 10px;
+  color: #88a6b5;
+  font-weight: 600;
+}
+
+@media (min-width: 1200px) {
+  .login-title {
+    font-size: 5vw;
+    text-align: right;
+  }
+  .under-auth {
+    font-size: 1.1rem;
+  }
+
+  .form-wrapper {
+    width: auto;
+  }
+}
