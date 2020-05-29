@@ -59,3 +59,4 @@ virtualenv==20.0.20
 virtualenv-clone==0.5.4
 web.py==0.51
 zipp==3.1.0
+django-heroku==0.3.1
