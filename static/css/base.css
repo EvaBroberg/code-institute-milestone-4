@@ -358,37 +358,154 @@ ul#dropdown1 {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 993px) {
+  nav .brand-logo {
+    left: -11%;
+  }
+  .main-logo {
+    width: 5vw;
+  }
+  .logo-text {
+    font-size: 2rem;
+  }
   .main-text h1 {
-    font-size: 5vw;
-    max-width: 60%;
+    font-size: 7vw;
   }
-
   .main-text p {
-    max-width: 60%;
+    font-size: 1.4rem;
   }
-
+  .btn-large {
+    font-size: 1.1rem;
+  }
+  .main-text {
+    position: relative;
+    height: 100vh;
+  }
   .scroll-icon {
+    display: block;
     position: absolute;
-    bottom: 5%;
-    left: 47%;
-    opacity: 0.5;
+    bottom: 135px;
+    right: 50%;
+    left: 50%;
+    opacity: 0.3;
   }
-
-  .main-header .showcase {
-    padding-top: 50px;
+  .choose-options-box h4 {
+    font-size: 1.4rem;
   }
-
+  .choose-options-box i {
+    font-size: 2.1rem;
+  }
+  .about-mobile-image {
+    position: static;
+    opacity: 1;
+    margin-top: 35px;
+  }
+  .about-mobile-image img {
+    max-width: 100%;
+  }
+  .about-text {
+    font-size: 1.2rem;
+  }
+  h2.about-title {
+    position: absolute;
+    width: 70%;
+    font-size: 4rem;
+  }
+  .about-text {
+    padding-top: 32vh;
+    font-size: 1.2rem;
+  }
+  .slider .slides {
+    display: block;
+  }
+  .slider .slides li img {
+    max-height: 60%;
+  }
   .slider-title {
-    max-width: 50%;
+    font-size: 8vw;
+  }
+  .section-services {
+    margin-top: 20vh;
+  }
+  .services-container {
+    padding-top: 5vh;
+  }
+  .service p {
+    padding: 10px;
+  }
+  .contact-form-title {
+    font-size: 5.5vw;
+    text-align: right;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-logo {
+    width: 50px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .main-text h1 {
+    font-size: 6vw;
+    max-width: 70%;
+  }
+  .main-text p {
+    max-width: 70%;
+  }
+  .choose-options-box h4 {
+    font-size: 1.5rem;
+  }
+  .choose-options-box i {
+    font-size: 2.5rem;
+    padding-top: 16px;
+  }
+  h2.about-title {
+    font-size: 5.5rem;
+  }
+  .about-text {
+    padding-top: 45vh;
+  }
+  .slider-title {
+    font-size: 6rem;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1678px) {
+  .main-text h1 {
+    font-size: 6.5rem;
+    max-width: 70%;
+  }
+  .main-text p {
+    max-width: 55%;
+  }
+  .button-holder {
+    text-align: left;
+  }
+  .choose-options-box h4 {
+    font-size: 1.7rem;
+    padding: 15px 0px;
+  }
+  .choose-options-box i {
+    font-size: 3rem;
+    padding-top: 30px;
+  }
+  .about-row {
+    margin-top: 50px;
+  }
+  h2.about-title {
+    font-size: 6.5rem;
+    line-height: 89px;
+    width: 60%;
+  }
+  .slider-title {
     font-size: 7rem;
   }
-
-  .choose-plan-title {
-    font-size: 5rem;
+  .slider .slides li img {
+    max-height: 80%;
   }
-
-  .contact-form-title {
-    font-size: 6.5rem;
+  .services-container {
+    padding-top: 25vh;
   }
 }
