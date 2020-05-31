@@ -14,10 +14,8 @@ import os
 import django_heroku
 import dj_database_url
 
-# if os.path.exists('env.py'):
-#     import env
-
-
+if os.path.exists('env.py'):
+    import env
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -36,11 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '192.168.1.225',
-    'localhost',
-    'milestone-4-ugogirl.herokuapp.com'
-    ]
+ALLOWED_HOSTS = ['milestone-4-ugogirl.herokuapp.com']
 
 
 # Application definition
