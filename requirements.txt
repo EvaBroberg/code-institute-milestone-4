@@ -16,5 +16,6 @@ s3transfer==0.3.3
 stripe==2.47.0
 django-materialize==1.0.1a2
 django-countries==6.1.2
+env==0.1.0
 
 
