@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import django_heroku
-import dj_database_url
 
 if os.path.exists('env.py'):
     import env
@@ -101,23 +100,6 @@ WSGI_APPLICATION = 'milestone_4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
-
-
-# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2-binary',
-#     }
-# }
 
 if os.environ.get("DATABASE_URL"):
     DATABASES = {
@@ -131,7 +113,9 @@ else:
         }
     }
 
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASE['default'].update(db_from_env)
 
 
 # Password validation
