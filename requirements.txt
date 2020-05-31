@@ -13,15 +13,15 @@ idna==2.9
 
 
 
-pytz==2019.3
-rcssmin==1.0.6
+
+
 requests==2.23.0
 rjsmin==1.1.0
 
 
 
 
-
+pytz==2019.3
 boto3==1.13.17
 botocore==1.16.17
 django-storages==1.9.1
