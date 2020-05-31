@@ -1,4 +1,4 @@
-pytz==2019.3
+
 boto3==1.13.17
 django-storages==1.9.1
 jmespath==0.10.0
