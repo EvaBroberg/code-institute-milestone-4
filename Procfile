@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn code-institute-milestone-4.wsgi:application

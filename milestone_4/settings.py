@@ -14,8 +14,8 @@ import os
 import django_heroku
 import dj_database_url
 
-if os.path.exists('env.py'):
-    import env
+# if os.path.exists('env.py'):
+#     import env
 
 
 
