@@ -14,7 +14,6 @@ chardet==3.0.4
 
 
 
-requests==2.23.0
 rjsmin==1.1.0
 
 
