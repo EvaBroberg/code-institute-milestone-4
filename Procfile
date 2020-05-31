@@ -1,1 +1,1 @@
-web: gunicorn milestone-4-ugogirl:app
+web: gunicorn code-institute-milestone-4.wsgi:application
