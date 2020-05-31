@@ -1,1 +1,1 @@
-web: gunicorn milestone_4.wsgi:application
+web:gunicorn milestone_4.wsgi --log-file -
