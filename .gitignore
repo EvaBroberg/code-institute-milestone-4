@@ -1,4 +1,9 @@
 *.sqlite3
 *.pyc
 __pycache__/
+env-env/
+lib/
+include/
+media/
+pip-freez/
 env.py
