@@ -21,3 +21,7 @@ def productPage(request, category_slug, product_slug):
         raise e 
     
     return render(request, 'product.html', {'product':product})
+
+def search(request):
+    products = Product.objects.filter(name__icontains=request.GET['name'])
+    return render(request, "shop.html", {"products":products})

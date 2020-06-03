@@ -213,7 +213,7 @@ ul#dropdown1 {
 }
 
 .sidenav {
-  text-align: center;
+  text-align: left;
 }
 
 .sidenav li > a {
@@ -283,7 +283,7 @@ ul#dropdown1 {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 50px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.2rem;
 }
 
@@ -309,14 +309,15 @@ ul#dropdown1 {
   text-transform: uppercase;
 }
 
+.sidenav-trigger {
+  padding-top: 21px;
+  line-height: 10vh;
+  font-size: 2.5rem;
+}
+
 /* media queries */
 
 @media (min-width: 600px) {
-  nav .sidenav-trigger i {
-    line-height: 10vh;
-    font-size: 2.5rem;
-  }
-
   .main-logo {
     width: 8vw;
   }
@@ -436,6 +437,13 @@ ul#dropdown1 {
   .contact-form-title {
     font-size: 5.5vw;
     text-align: right;
+  }
+  .cart-items {
+    position: static !important;
+  }
+  .cart-items span {
+    top: 26px !important;
+    right: -11px !important;
   }
 }
 

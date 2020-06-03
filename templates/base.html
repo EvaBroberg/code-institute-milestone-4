@@ -44,6 +44,10 @@
 
           <a href="{% url 'index' %}" class="brand-logo"><img class="main-logo" src="/static/img/logo.png" alt=""><span class="logo-text">uGOgirl</span></a>
           <a href="#!" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <div class="cart-items cart-items-min hide-on-large-only">
+            <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0 badge ">{{item_count}}</span>
+            <a href="{% url 'checkout' %}"><i class="material-icons white-text">shopping_cart</i></a>
+          </div>
           <ul class="right hide-on-med-and-down">
             <li {% if request.resolver_match.url_name == 'products' %}class="active" {% endif %}>
               <a href="{% url 'shop' %}">Shop</a>
@@ -121,8 +125,7 @@
        
       </li>
     </ul>
-  </div>
-    
+  </div>    
     <div>
       {% if messages %}
       {% for message in messages %}
