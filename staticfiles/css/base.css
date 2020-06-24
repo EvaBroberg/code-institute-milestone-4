@@ -31,7 +31,7 @@ span.character-counter {
 
 .main-logo {
   padding-top: 20px;
-  width: 10vw;
+  width: 50px;
   height: auto;
 }
 
@@ -213,7 +213,7 @@ ul#dropdown1 {
 }
 
 .sidenav {
-  text-align: center;
+  text-align: left;
 }
 
 .sidenav li > a {
@@ -283,7 +283,7 @@ ul#dropdown1 {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 50px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.2rem;
 }
 
@@ -309,14 +309,84 @@ ul#dropdown1 {
   text-transform: uppercase;
 }
 
+.sidenav-trigger {
+  padding-top: 21px;
+  line-height: 10vh;
+  font-size: 2.5rem;
+}
+
+span.logo-text-footer {
+  color: white;
+  font-size: 2rem;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-family: 'Trade Winds', cursive;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-col a{
+  margin-top: 5px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+
+.footer-col p {
+  font-size: 14px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  margin-bottom: 30px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+}
+
+.footer-col span {
+  margin-right: 10px;
+}
+
+.footer-copyright {
+  margin-top: 30px;
+}
+
+.github {
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.social:hover {
+  background-color: #78909c!important;
+}
+
+.contact-icon span:hover {
+  color: #78909c!important;
+}
+
+.footer-link:hover {
+  color: #78909c!important;
+}
+
+.footer-logo {
+  margin-bottom: 10px;
+}
+
+.footer-col-secondary {
+  margin-top: 10px;
+}
+
+
 /* media queries */
 
 @media (min-width: 600px) {
-  nav .sidenav-trigger i {
-    line-height: 10vh;
-    font-size: 2.5rem;
-  }
-
   .main-logo {
     width: 8vw;
   }
@@ -356,6 +426,8 @@ ul#dropdown1 {
   .about-mobile-image img {
     width: 700px;
   }
+
+  
 }
 
 @media (min-width: 993px) {
@@ -436,6 +508,20 @@ ul#dropdown1 {
   .contact-form-title {
     font-size: 5.5vw;
     text-align: right;
+  }
+  .cart-items {
+    position: static !important;
+  }
+  .cart-items span {
+    top: 26px !important;
+    right: -11px !important;
+  }
+  .footer-col-secondary {
+    margin-top: 30px;
+  }
+  .footer-col-secondary-middle {
+    display: flex;
+    align-items: center;
   }
 }
 

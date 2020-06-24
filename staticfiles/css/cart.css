@@ -120,6 +120,24 @@ button#delete-product {
 }
 
 .cart-items {
+  position: absolute;
+  left: 63px;
+  top: 22px;
+}
+
+.cart-items span {
+  position: absolute;
+  top: -1px;
+  right: -27px;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+/* .cart-items span {
+  color: white;
+} */
+
+/* .cart-items {
   position: relative;
 }
 
@@ -130,7 +148,7 @@ button#delete-product {
   color: white;
   padding: 0;
   margin: 0;
-}
+} */
 
 /* checkout buttons */
 

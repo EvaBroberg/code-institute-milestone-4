@@ -1,10 +1,13 @@
-.product-list-card-image {
-  height: 30vh;
-  width: 15vw;
-  padding: 30px;
-  contain: content;
+.card-image img {
+  object-fit: cover;
+  overflow: hidden;
 }
 
-.product-list-card-image img {
-  height: 100%;
+.card-content span {
+  color: #cfd8dc;
+  font-weight: bold;
+}
+
+.card-title {
+  font-weight: bold !important;
 }

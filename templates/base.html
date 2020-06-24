@@ -32,16 +32,13 @@
   <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
   <link rel="stylesheet" href="{% static 'css/product_list.css' %}" />
   <link rel="stylesheet" href="{% static 'css/checkout.css' %}" />
-  
 </head>
 
 <body id="home" class="scrollspy">
-  
   <div class="navbar-fixed">
     <nav class="transparent z-depth-0">
       <div class="container">
         <div class="nav-wrapper">
-
           <a href="{% url 'index' %}" class="brand-logo"><img class="main-logo" src="/static/img/logo.png" alt=""><span class="logo-text">uGOgirl</span></a>
           <a href="#!" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <div class="cart-items cart-items-min hide-on-large-only">
@@ -83,8 +80,6 @@
               </div>
             </li>
           </ul>
-
-
         </div>
       </div>
     </nav>
@@ -114,134 +109,152 @@
         <a href="#contact">Contact</a>
       </li>
       <li>
-        
-          {% if user.is_authenticated %}
-          <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
-          <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
-          {% else %}
-          <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
-          <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
-          {% endif %}
-       
+        {% if user.is_authenticated %}
+        <li href="{% url 'index' %}" i><a href="{% url 'logout' %}">Logout</a></li>
+        <li {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}><a href="{% url 'user-page' %}">Profile</a></li>
+        {% else %}
+        <li {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}><a href="{% url 'login' %}">Login</a></li>
+        <li {% if request.resolver_match.url_name == 'register' %}class="active" {% endif %}><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
       </li>
     </ul>
   </div>    
-    <div>
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
-        {{ message }}
-      </div>
-      {% endfor %}
-      {% endif %}
+  <div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+      {{ message }}
     </div>
- 
+    {% endfor %}
+    {% endif %}
+  </div>
+  
   
   {% block content %}
   {% endblock %}
-  
   
   <!-- Footer -->
   <footer class="page-footer blue-grey darken-3">
     <div class="container">
       <div class="row">
-        <div class="col l3 s12">
-          <h5 class="footer-title">Location</h5>
-          <p>uGOgirl, LTD</p>
-          <p>123 Some Rd, London UK</p>
+        <div class="col s12 l4 footer-col">
+          <a class="footer-logo valign-wrapper" href="{% url 'index' %}" class="brand-logo valign-wrapper">
+            <img class="main-logo" src="/static/img/logo.png" alt="" />
+            <span class="logo-text-footer">uGOgirl</span>
+          </a>
+          <p >Our experienced staff will ensure you reach your goals and will help you to bring your body building lifestyle to the next level.</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/" target="blank" class="btn-floating social instagram blue-grey z-depth-0"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.twitter.com/" target="blank" class="z-depth-0 btn-floating social twitter blue-grey"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/" target="blank" class="z-depth-0 btn-floating social facebook blue-grey"><i class="fa fa-facebook"></i></a>         
+          </div>
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text footer-title">Links</h5>
+        <div class="col s12 l4 footer-col footer-col-secondary footer-col-secondary-middle">
+          <h5 class="white-text footer-title">Quick Links</h5>
           <ul>
             <li>
-              <a class="white-text" href="#home">Home</a>
+              <span style="font-size: 10px;" class="material-icons blue-grey-text">fiber_manual_record</span>
+              <a class="white-text footer-link" href="#home">Home</a>
             </li>
             <li>
-              <a class="white-text" href="#about">About</a>
+              <span style="font-size: 10px;" class="material-icons blue-grey-text">fiber_manual_record</span>
+              <a class="white-text footer-link" href="#about">About</a>
             </li>
             <li>
-              <a class="white-text" href="#plans">Memberships</a>
+              <span style="font-size: 10px;" class="material-icons blue-grey-text">fiber_manual_record</span>
+              <a class="white-text footer-link" href="{% url 'post_list' %}">News</a>
             </li>
             <li>
-              <a class="white-text" href="{% url 'post_list' %}">News</a>
-            </li>
-            <li>
-              <a class="white-text" href="#contact">Contact</a>
+              <span style="font-size: 10px;" class="material-icons blue-grey-text">fiber_manual_record</span>
+              <a class="white-text footer-link" href="{% url 'select' %}">Memberships</a>
             </li>
           </ul>
+        </div>
+        <div class="logo-text-footer col s12 l4 footer-col footer-col-secondary">
+          <h5 class="white-text footer-title">Contact</h5>
+          <div class="contact-icon valign-wrapper">
+            <a href="https://www.google.com/maps" target="blank"><span class="material-icons blue-grey-text">home</span></a>
+            <a href="https://www.google.com/maps" target="blank"><span class="white-text">24 Some Awesome Rd, LDN SW23 9JY</span></a>
+          </div>
+          <div class="contact-icon valign-wrapper">
+            <a href="mailto:info@yougogirl.com"><span class="material-icons blue-grey-text">email</span></a>
+            <a href="mailto:info@yougogirl.com"><span class="white-text">info@ugogirl.com</span></a>
+          </div>
+          <div class="contact-icon valign-wrapper">
+            <a href="tel:123-456-7890"><span class="material-icons blue-grey-text">call</span></a>
+            <a href="tel:123-456-7890"><span class="white-text">07761230927</span></a>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer-copyright blue-grey">
       <div class="container">
         uGOgirl © <span id="year"></span>
-        <a class="grey-text text-lighten-4 right" href="#!"> <i class="material-icons left">keyboard_arrow_up</i> Back
-          to Top </a>
-        </div>
+        <a class="github white-text" href="https://github.com/EvaBroberg/code-institute-milestone-4" target="_blank"><i class="fa fa-github"></i> </a>
+        <a class="grey-text text-lighten-4 right" href="#home"> <i class="material-icons left">keyboard_arrow_up</i> Back to Top </a>
       </div>
-    </footer>
-    
-    
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    
-    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    
-    
-    
-    <script>
-      $(document).ready(function () {
-        $('.sidenav').sidenav();
-        
-        $('.scrollspy').scrollSpy();
-        
-        var modalElems = document.querySelectorAll('.modal');
-        var modalInstances = M.Modal.init(modalElems, {
-        });
-        
-        $('.main-text').fadeIn(1500).removeClass('hidden');
-        
-        $('.slider').slider({
-          indicators: false,
-          height: 700,
-          transition: 500,
-          interval: 6000
-        });
-        
-        $(window).scroll(function () {
-          if (window.pageYOffset > 1000 - $(window).height()) {
-            $('nav').removeClass('transparent z-depth-0').addClass('blue-grey darken-3 z-depth-4');
-          } else {
-            $('nav').addClass('transparent z-depth-0').removeClass('blue-grey darken-3 z-depth-4');
-          }
-        });
-        
-        document.getElementById('year').innerHTML = new Date().getFullYear();
+    </div>
+  </footer>
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  
+  <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      
+      $('.scrollspy').scrollSpy();
+      
+      var modalElems = document.querySelectorAll('.modal');
+      var modalInstances = M.Modal.init(modalElems, {
       });
       
+      $('.main-text').fadeIn(1500).removeClass('hidden');
       
+      $('.slider').slider({
+        indicators: false,
+        height: 700,
+        transition: 500,
+        interval: 6000
+      });
       
-      $('.dropdown-trigger').dropdown();
-      
-      
-      setTimeout(function(){
-        if ($('#msg').length > 0) {
-          $('#msg').remove();
+      $(window).scroll(function () {
+        if (window.pageYOffset > 1000 - $(window).height()) {
+          $('nav').removeClass('transparent z-depth-0').addClass('blue-grey darken-3 z-depth-1');
+        } else {
+          $('nav').addClass('transparent z-depth-0').removeClass('blue-grey darken-3 z-depth-1');
         }
-      }, 5000)
-
-    </script>
+      });
+      
+      document.getElementById('year').innerHTML = new Date().getFullYear();
+    });
     
     
-    <script src="https://js.stripe.com/v3/"></script>
-    <!-- <script type="text/javascript" src="canvasjs.min.js"></script> -->
     
-    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/membership_payment.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
-  </body>
+    $('.dropdown-trigger').dropdown();
+    
+    
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 5000)
+    
+  </script>
   
-  </html>
+  
+  <script src="https://js.stripe.com/v3/"></script>
+  <!-- <script type="text/javascript" src="canvasjs.min.js"></script> -->
+  <script src="https://kit.fontawesome.com/d7c13503ab.js" crossorigin="anonymous"></script>
+  
+  
+  <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/membership_payment.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+</body>
+
+</html>
