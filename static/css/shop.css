@@ -24,9 +24,17 @@
   .card .card-content .shop-card-title {
     line-height: 19px;
   }
+ 
+  .shop-buttons-wrapper a {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
 
 @media (min-width: 670px) {
+  .shop-buttons-wrapper a {
+    width: auto;
+  }
   .card .shop-card-title {
     font-size: 1rem;
   }
@@ -42,6 +50,9 @@
   .shop-card-content p {
     font-size: 0.9rem;
   }
+  .shop-buttons-wrapper {
+    margin-top: 25px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -56,4 +67,6 @@
   .shop-card-content {
     padding: 32px 10px 0px 10px !important;
   }
+
+ 
 }

@@ -6,8 +6,8 @@
   class="section section-search white-text center scrollspy blue-grey darken-2"
 >
   <div class="container ">
-    <div class="row valign-wrapper">
-      <div class="col s12 m5">
+    <div class="row">
+      <div class="col s12 m7">
         <form method="GET" action="{% url 'search' %}">
           <div class="input-field">
             <input name="name" id="search" type="text" required />
@@ -18,8 +18,8 @@
         {% endif %}
       </div>
 
-      <div class="col s12 m7">
-        <div>
+      <div class="col s12 m5">
+        <div class="shop-buttons-wrapper">
           <a href="{% url 'shop' %}" class="btn btn-large white-text blue-grey darken-1 waves-light">Shop All</a>
 
           <a class="dropdown-trigger btn btn-large white-text blue-grey darken-1 waves-light" href="#" data-target="dropdown3">Categories</a>

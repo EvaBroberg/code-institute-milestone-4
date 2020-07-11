@@ -36,7 +36,7 @@ nav ul a:hover {
 
 .main-logo {
   padding-top: 20px;
-  width: 50px;
+  width: 3rem;
   height: auto;
 }
 
@@ -392,10 +392,6 @@ span.logo-text-footer {
 /* media queries */
 
 @media (min-width: 600px) {
-  .main-logo {
-    width: 8vw;
-  }
-
   .logo-text {
     top: 25px;
     font-size: 2.5rem;
@@ -438,9 +434,6 @@ span.logo-text-footer {
 @media (min-width: 993px) {
   nav .brand-logo {
     left: -11%;
-  }
-  .main-logo {
-    width: 5vw;
   }
   .logo-text {
     font-size: 2rem;
@@ -531,9 +524,7 @@ span.logo-text-footer {
 }
 
 @media (min-width: 1200px) {
-  .main-logo {
-    width: 50px;
-  }
+
 }
 
 @media (min-width: 1480px) {
