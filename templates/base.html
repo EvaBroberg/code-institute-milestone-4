@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
   <link rel="stylesheet" href="{% static 'css/product_list.css' %}" />
   <link rel="stylesheet" href="{% static 'css/checkout.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/post_detail.css' %}" />
 </head>
 
 <body id="home" class="scrollspy">
@@ -244,6 +245,10 @@
     }, 5000)
     
   </script>
+
+<script>
+  var editor = new MediumEditor('.editable');
+</script>
   
   
   <script src="https://js.stripe.com/v3/"></script>

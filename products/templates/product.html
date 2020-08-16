@@ -1,59 +1,47 @@
 {% extends 'base.html' %} {% block content %}
 
-<!-- Slider -->
-<div class="slider">
-  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
-  <ul class="slides shop-slides">
-    <li>
-      <img class="slider-image" src="/static/img/equipment.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment2.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment3.jpg" />
-    </li>
-  </ul>
-</div>
-
-<!-- Shopping Nav -->
-<section class="section-boxes center">
-  <div class="row">
-    <div class="col s12 m6 l3 blue-grey darken-3 white-text box">
-      <h4><a href="#equipment" class="white-text">Equipment</a></h4>
-    </div>
-    <div class="col s12 m6 l3 blue-grey darken-2 white-text box">
-      <h4><a href="#apparel" class="white-text">Apparel</a></h4>
-    </div>
-    <div class="col s12 m6 l3 blue-grey darken-1 white-text box">
-      <h4><a href="#performance" class="white-text">Performance</a></h4>
-    </div>
-    <div class="col s12 m6 l3 blue-grey white-text box">
-      <h4><a href="#accessories" class="white-text">Accessories</a></h4>
-    </div>
-  </div>
-</section>
-
-<!-- Equipment -->
-<section id="equipment" class="section section-plans scrollspy box">
+<section class="section section-product-detail blue-grey darken-4">
   <div class="container">
-    <div class="row">
-      <div class="col s12 m3">
-        {% if product.image %}
-        <img class="responsive-img" src="{{product.image.url}}" alt="" />
-        {% endif %}
+    <div class="product-row row">
+      <div class="col s12 l4">
+        <div class="product-img-container">
+          <img src="{{product.image.url}}" />
+        </div>
       </div>
-      <div class="col s12 m9">
-        <h1>{{product.name}}</h1>
-        <p>£{{product.price}}</p>
-        <p>
-          {{product.description}}
+      <div class="description-col col s12 l5">
+        <h6 style="margin-top: 0;" class="flow-text white-text">{{product.name}}</h6>
+        <p class="white-text">
+          <span class="grey-text">Price:</span>
+          <span style="font-size: 1.2rem; color: #607d8b; font-weight: bold; letter-spacing: 1.5px;">£
+            {{product.price}}</span> & FREE Delivery
         </p>
-        {% if product.stock <= 0 %}
-        <p>OUT OF STOCK</p>
-        {% else %}
-        <a href="{% url 'add_cart' product.id %}">Add to cart</a>
-        {%endif%}
+        <p>{{product.description|linebreaks}}</p>
+      </div>
+      <div class="add-to-cart-col col s12 l3">
+        <h6>£ {{product.price}}</h6>
+        <p class="white-text">FREE delivery.</p>
+        <p class="white-text">In stock.</p>
+        <form method="post" action="{% url 'add_cart' product.id %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="quantity qty-container">
+              <p>Qty:</p>
+              <input class="select-qty" name="quantity" type="number" min="1" max="999" value="1" />
+              <div class="quantity-nav">
+                <div class="quantity-up">
+                  <i class="material-icons white-text">arrow_drop_up</i>
+                </div>
+                <div class="quantity-down">
+                  <i class="material-icons white-text">arrow_drop_down</i>
+                </div>
+              </div>
+            </div>
+            <button class="add-to-cart-button btn blue-grey waves-effect waves-light" type="submit" name="action">
+              Add to Cart
+              <i class="material-icons left">add_circle</i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -61,63 +49,4 @@
 
 {% endblock %}
 
-<!-- transffer to shop -->
 
-<!-- Slider -->
-<!-- <div class="slider">
-  <h2 class="shop-slider-title slider-title" style="color: #cfd8dc; font-family: 'Heebo', sans-serif;">GEAR UP TO CHANGE YOUR LIFE!</h2>
-  <ul class="slides shop-slides">
-    <li>
-      <img class="slider-image" src="/static/img/equipment.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment2.jpg" />
-    </li>
-    <li>
-      <img class="slider-image" src="/static/img/equipment3.jpg" />
-    </li>
-  </ul>
-</div> -->
-
-<section class="section section-search">
-  <!-- search -->
-  {% include "search.html" %}
-</section>
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h1 class="center-align">All products</h1>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="container">
-  <div class="row">
-    {% for product in products %}
-    <div class="col s12 m3">
-      <div class="card">
-        <div class="card-image">
-          <a href="{{ product.get_url }}">
-            {% if product.image %}
-            <img src="{{ product.image.url }}" />
-            {% endif %}
-          </a>
-        </div>
-        <div class="card-content">
-          <span class="card-title black-text">{{product.name}}</span>
-          <p>
-            {{product.description}}
-          </p>
-          <p>
-            £{{product.price}}
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div> -->

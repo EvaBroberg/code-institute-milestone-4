@@ -3,11 +3,11 @@
 
 <section style="padding-top: 150px;" class="section section-blogpost blue-grey darken-4">
   <div class="container">
-    <div class="row">
-      <h1 class="posttitle loader white-text">{{post.title}}</h1>
+    <div class="row blog-detail-row">
+      <h1 class="post-title loader white-text">{{post.title}}</h1>
       <img src="{{ post.author.profile.image.url }}" alt="" />
       {% if post.published_date %}
-      <div class="date postdate">
+      <div class="date postdate white-text">
         {{ post.published_date }}
       </div>
       {% else %}
@@ -15,11 +15,11 @@
       {% endif %}
     </div>
     
-    <div class="row">
+    <div class="row blog-detail-row">
       <p class="postcontent">{{ post.text|safe|linebreaksbr }}</p>
     </div>
     
-    <div class="row">
+    <div class="row blog-detail-icons-row">
       {% if user.is_authenticated and user.is_superuser %}
       <a class="post-detail-icon btn-floating waves-effect waves-light blue-grey" href="{% url 'post_edit' pk=post.pk %}"><i class="material-icons">edit</i></a>
       <a class="post-detail-icon btn-floating waves-effect waves-light blue-grey" href="{% url 'post_remove' pk=post.pk %}"><i class="material-icons">delete</i></a>

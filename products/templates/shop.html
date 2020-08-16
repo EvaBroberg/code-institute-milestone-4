@@ -39,27 +39,32 @@
   <div class="container">
     <div class="row">
       {% for product in products %}
-      <div class="col s12 m4 l3">
-        <div class="card">
-          <div class="card-image">
-            {% if product.image %}
-            <img src="{{ product.image.url }}" />
-            {% endif %} {% if product.stock <= 0 %}
-            <p>OUT OF STOCK</p>
-            {% else %}
-            <a class="btn-floating halfway-fab waves-effect waves-light blue-grey darken-4" href="{% url 'add_cart' product.id %}"
-              ><i class="material-icons">add</i></a
-            >
-            {%endif%}
+      
+        <div class="col s12 m4 l3">
+          <a href="{{product.get_url}}">
+          <div class="card">
+            
+            <div class="card-image">
+              {% if product.image %}
+              <img src="{{ product.image.url }}" />
+              {% endif %} {% if product.stock <= 0 %}
+              <p>OUT OF STOCK</p>
+              {% else %}
+              <a class="btn-floating halfway-fab waves-effect waves-light blue-grey darken-4" href="{% url 'add_cart' product.id %}"
+                ><i class="material-icons">add</i></a
+              >
+              {%endif%}
+            </div>
+            <div class="card-content shop-card-content blue-grey lighten-1">
+              <span class="card-title shop-card-title">{{product.name}}</span>
+              <p class="white-text">
+                {{product.description|truncatewords:20}}
+              </p>
+            </div>
           </div>
-          <div class="card-content shop-card-content blue-grey lighten-1">
-            <span class="card-title shop-card-title">{{product.name}}</span>
-            <p class="white-text">
-              {{product.description|truncatewords:20}}
-            </p>
-          </div>
+        </a>
         </div>
-      </div>
+      </a>
       {%endfor%}
     </div>
   </div>

@@ -1,11 +1,16 @@
 {% extends 'base.html' %} {% block page_title %}Post{% endblock %} {% block content %}
-<h1>New Post</h1>
-<form class="post-form" method="POST">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="save btn btn-default">Save</button>
-</form>
+<section style="padding-top: 90px;" class="section section-post-form blue-grey darken-4">
+  <div class="container">
+    <form class="post-form" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+  </div>
+</section>
 
 <script>
   var editor = new MediumEditor('.editable');
 </script>
 {% endblock %}
+
+
