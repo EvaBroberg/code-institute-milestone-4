@@ -85,6 +85,49 @@ As an admin:
     <li>On the right user can update their info and image using form provided</li>
 </ul>
 
+<h3>Shop</h3>
+<ul>
+    <li>Any user can see shop items, review product detail and addd to cart, but only registered users can checkout.</li>
+    <li>Upon entering shop user can see an adittional nav where they can either search product or select product by category</li>
+    <li>Upon clicking on image user is redirected to product detail, where they can read description of the product select quantity and add it to cart.</li>
+    <li>Upon clickin '+' on the item it will be added to cart.</li>
+</ul>
+
+<h3>Memberships</h3>
+<ul>
+    <li>User is redirected to memberships page where they can see all the available plans. Their current plan will be disabled by default so they can't purchase it again.</li>
+    <li>User can view plab which will prompt a modal with it's benefits</li>
+    <li>upon purchasing a new plab user will be redirected to payment page where they will be able to upgrade/downgrade their plan</li>
+</ul>
+
+<h3>Cart</h3>
+<ul>
+    <li>Cart icon is displayed on the top left corner in the menu and it shows the number of items in the cart</li>
+    <li>Upon clicking cart icon user is redirected to cart page</li>
+    <li>In the cart page user can see the items and buttons to either checkout or continue shopping</li>
+    <li>Upon clicking checkout user is prompted to enter their details in order to checkout with stripe.</li>
+</ul>
+
+<h3>About page</h3>
+<ul>
+    <li>Upon clicking 'About' user is redirected to the part of home page with the about section.</li>
+</ul>
+
+<h3>News page</h3>
+<ul>
+    <li>News redirect user to the blog page where first of all user sees pictures of staff members and more detailed description about company and their mission. Scrolling down there are images and titles of articles that were created by staff members</li>
+    <li>Upon clicking on article user is redirected to article page where they can read it and comment. They can also see comments by other users under the article</li>
+    <li>For a regular user only comment icon is displayed, while admin user will also see edit button by the article and accept/deny and remove buttons by the comments</li>
+    <li>Every comment posted needs to be approved by admin before it displays for user.</li>
+</ul>
+
+
+<h3>Contact</h3>
+<ul>
+    <li>Redirects user to contact form on the home page</li>
+    <li>
+</ul>
+
 <h2>To implement in the future:</h2>
 
 <h3>Login/Register/Logout</h3>
@@ -99,7 +142,49 @@ As an admin:
     <li>Account page should show user's current membership and prompt them to update it if they like</li>
 </ul>
 
+<h3>Cart</h3>
+<ul>
+    <li>Add a dropdown on hover of cart icon that will show the contents of the cart and a checkout button</li>
+    <li>In the cart page upon increasing/decreasing quanitity user is redirected back to home page, change that to increase number in the cart and staying on the page + display quantity on checkout</li>
+</ul>
+
+<h3>News page</h3>
+<ul>
+    <li>Add functionality to customise text/ add images and videos etc for admin when creating a post.</li>
+</ul>
+
 ## TESTING
+
+<h2>I used manual testing only for this project:</h2>
+<ul>
+    Test round 1:
+    <ol>
+        <li>Entered as a guest user and accessed all the pages that guest should be able to see</li>
+        <li>Added items in the cart and closed browser to see if my data will remain upon going to page again</li>
+        <li>tried to checkout as a guest to see if I will be prompted to register</li>
+        <li>Repeated this on tablet, phone and computer to investigate responsivness of the site</li>
+    </ol>
+</ul>
+
+<ul>
+    Test round 2:
+    <ol>
+        <li>Registered and logged in</li>
+        <li>Went to profile and updated my info, uploaded picture, tried acessing progress page, got prompted to upgrade membership</li>
+        <li>Upgraded and Downgraded memberships checking payment was going through and correct membership was disabled.</li>
+        <li>Added items to the cart and checked out checked that payment went through</li>
+    </ol>
+</ul>
+
+<ul>
+    Test round 3:
+    <ol>
+        <li>Asked people to register and play around in the site reporting me if sth went wrong</li>
+        <li>Repeated this on tablet, phone and computer to investigate responsivness of the site</li>
+    </ol>
+</ul>
+
+
 
 ## DEPLOYMENT
 Hosted in Heroku and deployed to GitHub. Heroku will automatically update upon new github commits.
