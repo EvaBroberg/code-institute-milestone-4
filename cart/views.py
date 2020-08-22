@@ -40,7 +40,7 @@ def add_cart(request, product_id):
         cart_item = CartItem.objects.create(product=product, quantity=1,cart=cart)
         cart_item.save()
          
-    return redirect('add_cart')
+    return redirect('shop')
 
     
     
@@ -54,7 +54,7 @@ def cart_remove(request, product_id):
         cart_item.save()
     else:
         cart_item.delete()
-    return redirect('add_cart')
+    return redirect('checkout')
 
 
 def cart_delete(request, product_id):
@@ -63,7 +63,7 @@ def cart_delete(request, product_id):
     cart_item = CartItem.objects.get(product=product, cart=cart)
     cart_item.delete()
     
-    return redirect('add_cart')
+    return redirect('shop')
 
 
 

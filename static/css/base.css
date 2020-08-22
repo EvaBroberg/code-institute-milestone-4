@@ -523,6 +523,14 @@ span.logo-text-footer {
   }
 }
 
+td {
+  color: white;
+}
+
+.ElementsApp, .ElementsApp .InputElement {
+  color: white;
+}
+
 @media (min-width: 1200px) {
 
 }
