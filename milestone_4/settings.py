@@ -32,7 +32,7 @@ MEDIA_DIR  = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['milestone-4-ugogirl.herokuapp.com', ' 127.0.0.1']
 
