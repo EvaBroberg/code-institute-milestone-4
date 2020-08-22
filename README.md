@@ -13,48 +13,53 @@ Exclaimer: this website has been built for educational purpouses and will not be
 
 ## UX
 The design of the site seeks to be simplistic yet modern and appealing for an eye, yet easy to navigate and informative. Navigation is sticky and repeated on the footer so that user could easily navigate despite of the scroll location. Theme colours and elements such as buttons, dropdowns etc are repeated across the site.
-User stories
+
+## USER STORIES
+
 As a guest user:
 <ul>
-<li> • I want to have access to information about different memberships.</li>
-<li> • I want to be able to read the news.</li>
-<li> • I want to be able to navigate easily on the site to contact information where I could enquire about training.
-</li>
-<li> • I want to access shop and be able to put items in the cart, I want these items to stay in the cart if I left the page without checking out.
-</li>
+    <li>I want to have access to information about different memberships.</li>
+    <li>I want to be able to read the news.</li>
+    <li>I want to be able to navigate easily on the site to contact information where I could enquire about training.
+    </li>
+    <li>I want to access shop and be able to put items in the cart, I want these items to stay in the cart if I left the page without checking out.
+    </li>
 </ul>
-   
    
 As a registered user:
 <ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+    <li>I want all the functionality that guest user has +
+    </li>
+    <li>I want to have access to my profile page and be able to update my information and profile picture.
+    </li>
+    <li>I want to be able to comment under news posts.
+    </li>
+    <li>I want to be able to buy items in the store and securely checkout.
+    </li>
+    <li>I want to be able to upgrade and downgrade my subscription which will affect my monthly payments.
+    </li>
 </ul>
-    • I want all the functionality that guest user has +
-    • I want to have access to my profile page and be able to update my information and profile picture.
-    • I want to be able to comment under news posts.
-    • I want to be able to buy items in the store and securely checkout.
-    • I want to be able to upgrade and downgrade my subscription which will affect my monthly payments.
-Admin:
-    • I want to be able to write, edit and delete news posts.
-    • I want to be able to approve or reject user’s comments under news posts.
-Wireframes
-    • Mobile
-    • Desktop
-          Technologies used
-    • Photoshop 
-    • HTML
-    • CSS
-    • JS
-    • Python
-    • Django
-    • Postgres db
-    • Materialize
 
-          FEATURES
+As an admin:
+<ul>
+    <li>I want to be able to write, edit and delete news posts.</li>
+    <li>I want to be able to approve or reject user’s comments under news posts.</li>
+</ul>
+
+## TECHNOLOGIES USED
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JS</li>
+    <li>Python</li>
+    <li>Django</li>
+    <li>Postgres db</li>
+    <li>Materialize</li>
+</ul>
+    
+
+## FEATURES
+
 Existing:
 To implement in the future:
 
@@ -63,10 +68,17 @@ To implement in the future:
 ## DEPLOYMENT
 Hosted in Heroku and deployed to GitHub. Heroku will automatically update upon new github commits.
 In order to deploy project locally:
-    • Download code file from git repository by clicking ‘code’ button. Alternitavelly navigate to the location you would like to save the project and in your terminal/command-line enter: ‘git clone https://github.com/EvaBroberg/code-institute-milestone-4.git’
-    • Using terminal/command-line set up virtual environment following these steps:
-       1. pip install virtualenv
-	2. virtualenv env
+<ul>
+    <li>Download code file from git repository by clicking ‘code’ button. Alternitavelly navigate to the location you would like to save the project and in your terminal/command-line enter: ‘git clone https://github.com/EvaBroberg/code-institute-milestone-4.git’
+    </li>
+    <li>Using terminal/command-line set up virtual environment following these steps:
+        <ol>
+        <li>pip install virtualenv</li>
+        <li>virtualenv env</li>
+        </ol>
+    </li>
+</ul>
+
     • Activate your new virtual environment:
       1. env\Scripts\activate
 
