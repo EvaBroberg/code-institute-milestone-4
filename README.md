@@ -11,15 +11,28 @@ UgoGir is a female-only body building members site which purpouse is to affectiv
 
 Exclaimer: this website has been built for educational purpouses and will not be used for an active business.
 
-UX
+## UX
 The design of the site seeks to be simplistic yet modern and appealing for an eye, yet easy to navigate and informative. Navigation is sticky and repeated on the footer so that user could easily navigate despite of the scroll location. Theme colours and elements such as buttons, dropdowns etc are repeated across the site.
 User stories
 As a guest user:
-    • I want to have access to information about different memberships.
-    • I want to be able to read the news.
-    • I want to be able to navigate easily on the site to contact information where I could enquire about training.
-    • I want to access shop and be able to put items in the cart, I want these items to stay in the cart if I left the page without checking out.
+<ul>
+<li> • I want to have access to information about different memberships.</li>
+<li> • I want to be able to read the news.</li>
+<li> • I want to be able to navigate easily on the site to contact information where I could enquire about training.
+</li>
+<li> • I want to access shop and be able to put items in the cart, I want these items to stay in the cart if I left the page without checking out.
+</li>
+</ul>
+   
+   
 As a registered user:
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
     • I want all the functionality that guest user has +
     • I want to have access to my profile page and be able to update my information and profile picture.
     • I want to be able to comment under news posts.
@@ -45,8 +58,9 @@ Wireframes
 Existing:
 To implement in the future:
 
-TESTING
-DEPLOYMENT
+## TESTING
+
+## DEPLOYMENT
 Hosted in Heroku and deployed to GitHub. Heroku will automatically update upon new github commits.
 In order to deploy project locally:
     • Download code file from git repository by clicking ‘code’ button. Alternitavelly navigate to the location you would like to save the project and in your terminal/command-line enter: ‘git clone https://github.com/EvaBroberg/code-institute-milestone-4.git’
